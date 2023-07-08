@@ -1,0 +1,11 @@
+import 'package:get/get.dart';
+import 'package:shopy/core/constant/routes.dart';
+import 'package:shopy/view/screen/authentification/sign_in.dart';
+import 'package:shopy/view/screen/authentification/sign_up.dart';
+import 'package:shopy/view/screen/splash/splash_screen.dart';
+
+List<GetPage<dynamic>>? routes = [
+  GetPage(name: AppRoute.splash, page: () => const SplashScreen()),
+  GetPage(name: AppRoute.login, page: () => const SignInScreen()),
+  GetPage(name: AppRoute.signUp, page: () => const SignUpScreen()),
+];
