@@ -3,24 +3,24 @@ import 'package:get/get.dart';
 validInput(String val, int min, int max, String type) {
   if (type == "username") {
     if (!GetUtils.isUsername(val)) {
-      return "not valid username";
+      return "13".tr;
     }
   }
   if (type == "email") {
     if (!GetUtils.isEmail(val)) {
-      return "not valid email";
+      return "14".tr;
     }
   }
 
   if (val.isEmpty) {
-    return "can't be Empty";
+    return "15".tr;
   }
 
   if (val.length < min) {
-    return "can't be less than $min";
+    return "${"16".tr} $min";
   }
 
   if (val.length > max) {
-    return "can't be larger than $max";
+    return "${"17".tr} $max";
   }
 }

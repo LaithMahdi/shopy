@@ -17,6 +17,21 @@ class MyTranslation extends Translations {
           "10": "اسم",
           "11": "أو قم بالتسجيل",
           "12": "هل لديك حساب؟",
+          "13": "اسم مستخدم غير صالح",
+          "14": "بريد إلكتروني غير صالح",
+          "15": "لا يمكن أن تكون فارغة",
+          "16": "لا يمكن أن يكون أقل من",
+          "17": "لا يمكن أن يكون أكبر من",
+          "18": "اختر اللغة",
+          "19": "العربية",
+          "20": "الإنجليزية",
+          "21":
+              "حدد تفاصيل الاتصال التي يجب أن نستخدمها لإعادة تعيين كلمة المرور الخاصة بك:",
+          "22": "عبر الرسائل القصيرة:",
+          "23": "عبر البريد الالكتروني:",
+          "24": "رمز الاسترداد",
+          "25":
+              "تم إرسال رمز الاسترداد إلى هاتفك المحمول. وقت انتهاء صلاحية الرمز هو 120 ثانية.\nالرجاء إدخال الرمز:",
         },
         "en": {
           "1": "Sign In",
@@ -32,6 +47,21 @@ class MyTranslation extends Translations {
           "10": "Name",
           "11": "Or sign up with",
           "12": "Already have an account?",
+          "13": "not valid username",
+          "14": "not valid email",
+          "15": "can't be Empty",
+          "16": "can't be less than",
+          "17": "can't be larger than",
+          "18": "Choose language",
+          "19": "Arabic",
+          "20": "English",
+          "21":
+              "Select which contact details should we use to reset your password:",
+          "22": "via sms:",
+          "23": "via email:",
+          "24": "Recovery code",
+          "25":
+              "The recovery code was sent to your mobile. Code expiration time is 120s.\nPlease enter the code:"
         }
       };
 }

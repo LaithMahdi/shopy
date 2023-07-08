@@ -24,11 +24,7 @@ class SignUpScreen extends StatelessWidget {
       backgroundColor: AppColor.primaryColorWhite,
       appBar: AppBar(
         leading: const CustomBackButton(),
-        title: Text(
-          "8".tr,
-          style: Get.textTheme.displayLarge,
-        ),
-        centerTitle: true,
+        title: Text("8".tr, style: Get.textTheme.displayLarge),
         backgroundColor: AppColor.primaryColorWhite,
         elevation: 0,
       ),

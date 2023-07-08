@@ -11,6 +11,7 @@ import 'package:shopy/view/widget/authentification/custom_primary_button.dart';
 import 'package:shopy/view/widget/authentification/custom_secondary_button.dart';
 import 'package:shopy/view/widget/authentification/custom_text_auth.dart';
 import 'package:shopy/view/widget/authentification/custom_text_form_field.dart';
+import 'package:shopy/view/widget/authentification/custom_text_top_auth.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -21,11 +22,7 @@ class SignInScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.primaryColorWhite,
       appBar: AppBar(
-        title: Text(
-          "1".tr,
-          style: Get.textTheme.displayLarge,
-        ),
-        centerTitle: true,
+        title: Text("1".tr, style: Get.textTheme.displayLarge),
         backgroundColor: AppColor.primaryColorWhite,
         elevation: 0,
       ),
@@ -37,14 +34,7 @@ class SignInScreen extends StatelessWidget {
           key: controller.formstate,
           child: ListView(children: <Widget>[
             const SizedBox(height: AppSize.md),
-            Text(
-              "2".tr,
-              style: Get.textTheme.headlineMedium!.copyWith(
-                fontWeight: FontWeight.w400,
-                fontSize: 13,
-                height: AppSize.textHeightSm,
-              ),
-            ),
+            CustomTextTopAuth(title: "2".tr),
             const SizedBox(height: AppSize.xlg),
             CustomTextAuth(title: "3".tr),
             const SizedBox(height: AppSize.paddingBetween),
@@ -95,14 +85,14 @@ class SignInScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: CustomSecondaryButton(
-                    onPressed: () => controller.signInwithFacebook(),
+                    onPressed: () => controller.signInWithFacebook(),
                     picture: AppImageAsset.facebook,
                   ),
                 ),
                 const SizedBox(width: AppSize.md),
                 Expanded(
                   child: CustomSecondaryButton(
-                    onPressed: () => controller.signInwithGoogle(),
+                    onPressed: () => controller.signInWithGoogle(),
                     picture: AppImageAsset.google,
                   ),
                 )

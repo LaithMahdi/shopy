@@ -7,8 +7,8 @@ abstract class SignInController extends GetxController {
   goToForgotPassword();
   signIn();
   showPassword();
-  signInwithGoogle();
-  signInwithFacebook();
+  signInWithGoogle();
+  signInWithFacebook();
 }
 
 class SignInControllerImp extends SignInController {
@@ -24,18 +24,24 @@ class SignInControllerImp extends SignInController {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    mailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   showPassword() {
     isShowPassword = isShowPassword == true ? false : true;
     update();
   }
 
   @override
-  goToForgotPassword() {}
+  goToForgotPassword() => Get.toNamed(AppRoute.forgotPassword);
 
   @override
-  goToSignUp() {
-    Get.toNamed(AppRoute.signUp);
-  }
+  goToSignUp() => Get.toNamed(AppRoute.signUp);
 
   @override
   signIn() {
@@ -45,8 +51,8 @@ class SignInControllerImp extends SignInController {
   }
 
   @override
-  signInwithFacebook() {}
+  signInWithFacebook() {}
 
   @override
-  signInwithGoogle() {}
+  signInWithGoogle() {}
 }

@@ -9,8 +9,9 @@ class AppSize {
   static const double paddingBetween = 9;
   // text
   static const double textHeightSm = 2.4;
-  // border Raduis
+  // border
   static const double borderRaduis = 14;
+  static const double border = 0.37;
   // button
   static const double buttonPadding = 20;
 }
