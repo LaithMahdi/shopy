@@ -32,6 +32,22 @@ class MyTranslation extends Translations {
           "24": "رمز الاسترداد",
           "25":
               "تم إرسال رمز الاسترداد إلى هاتفك المحمول. وقت انتهاء صلاحية الرمز هو 120 ثانية.\nالرجاء إدخال الرمز:",
+          "26": "رمز الاسترداد خاطئ",
+          "27": "استعادة رمز خاطئ حاول مرة أخرى",
+          "28": "نعم",
+          "29": "إلغاء",
+          "30": "كلمة المرور الجديدة",
+          "31":
+              "يجب أن تكون كلمة مرورك الجديدة مختلفة عن كلمات المرور المستخدمة سابقًا.",
+          "32": "تأكيد كلمة المرور",
+          "33": "تحديث",
+          "34": "أرسل مجددًا",
+          "35": "",
+          "36": "",
+          "37": "",
+          "38": "",
+          "39": "",
+          "40": "",
         },
         "en": {
           "1": "Sign In",
@@ -61,7 +77,23 @@ class MyTranslation extends Translations {
           "23": "via email:",
           "24": "Recovery code",
           "25":
-              "The recovery code was sent to your mobile. Code expiration time is 120s.\nPlease enter the code:"
+              "The recovery code was sent to your mobile. Code expiration time is 120s.\nPlease enter the code:",
+          "26": "Wrong recovery code",
+          "27": "Wrong code recovery try again",
+          "28": "Ok",
+          "29": "Cancel",
+          "30": "New password",
+          "31":
+              "Your new password must be different from previously used passwords.",
+          "32": "Confirm password",
+          "33": "Update",
+          "34": "Send again",
+          "35": "",
+          "36": "",
+          "37": "",
+          "38": "",
+          "39": "",
+          "40": "",
         }
       };
 }

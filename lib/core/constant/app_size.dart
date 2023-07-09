@@ -14,4 +14,7 @@ class AppSize {
   static const double border = 0.37;
   // button
   static const double buttonPadding = 20;
+  // otp
+  static const int numberOfField = 4;
+  static const double widthOfField = 60;
 }

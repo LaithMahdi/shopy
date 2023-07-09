@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopy/controller/authentification/forgot%20password/forgot_password_controller.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
 import 'package:shopy/core/constant/image_asset.dart';
@@ -12,6 +13,8 @@ class ForgotPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ForgotPasswordControllerImp controller =
+        Get.put(ForgotPasswordControllerImp());
     return Scaffold(
       appBar: AppBar(
         leading: const CustomBackButton(),
@@ -27,16 +30,22 @@ class ForgotPasswordScreen extends StatelessWidget {
           const SizedBox(height: AppSize.md),
           CustomTextTopAuth(title: "21".tr),
           const SizedBox(height: AppSize.xlg),
-          CustomCardForgotPassword(
-            picture: AppImageAsset.phone,
-            title: "22".tr,
-            subTitle: "*** *******61",
+          InkWell(
+            onTap: () => controller.goToSendViaSms(),
+            child: CustomCardForgotPassword(
+              picture: AppImageAsset.phone,
+              title: "22".tr,
+              subTitle: "*** *******61",
+            ),
           ),
           const SizedBox(height: AppSize.paddingBetween),
-          CustomCardForgotPassword(
-            picture: AppImageAsset.mail,
-            title: "23".tr,
-            subTitle: "****ic16@gmail.com",
+          InkWell(
+            onTap: () => controller.goToSendViaMail(),
+            child: CustomCardForgotPassword(
+              picture: AppImageAsset.mail,
+              title: "23".tr,
+              subTitle: "****ic16@gmail.com",
+            ),
           ),
         ]),
       ),
