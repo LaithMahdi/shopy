@@ -62,7 +62,7 @@ class NewPasswordScreen extends StatelessWidget {
                     : Icons.visibility,
                 keyboardType: TextInputType.text,
                 obscureText: controller.isNewShowPassword,
-                onTapShowEye: () => controller.showPassword(),
+                onTapShowEye: () => controller.showNewPassword(),
                 controller: controller.newPasswordController,
                 validator: (valid) {
                   return validInput(valid!, 5, 30, "new password");

@@ -1,4 +1,6 @@
 class AppSize {
+  // font size
+  static const double fs = 18;
   // heignt
   static const double md = 16;
   static const double lg = 22;
@@ -17,4 +19,7 @@ class AppSize {
   // otp
   static const int numberOfField = 4;
   static const double widthOfField = 60;
+  // icon
+  static const double successIcon = 110;
+  static const double successIconMd = 130;
 }

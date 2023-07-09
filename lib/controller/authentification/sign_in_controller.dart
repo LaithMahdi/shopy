@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopy/core/constant/routes.dart';
+import 'package:shopy/core/services/my_services.dart';
+import 'package:shopy/data/datasource/static/users_account.dart';
 
 abstract class SignInController extends GetxController {
   goToSignUp();
@@ -16,6 +18,7 @@ class SignInControllerImp extends SignInController {
   bool isShowPassword = true;
   late TextEditingController mailController;
   late TextEditingController passwordController;
+  MyServices myServices = Get.find();
   @override
   void onInit() {
     mailController = TextEditingController();
@@ -46,7 +49,15 @@ class SignInControllerImp extends SignInController {
   @override
   signIn() {
     if (formstate.currentState!.validate() == true) {
-      print("okay");
+      for (var element in usersAccount) {
+        if (element.mail == mailController.text &&
+            element.password == passwordController.text) {
+          myServices.sharedPreferences.setBool("auth", true);
+          Get.offAllNamed(AppRoute.home);
+        } else {
+          print("error");
+        }
+      }
     }
   }
 
