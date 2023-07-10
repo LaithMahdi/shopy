@@ -7,6 +7,19 @@ class AppImageAsset {
   static const String google = "$rootImages/icones/google.svg";
   static const String phone = "$rootImages/icones/phone.svg";
   static const String mail = "$rootImages/icones/mail.svg";
+  static const String camera = "$rootImages/icones/camera.svg";
+  static const String kid = "$rootImages/icones/kid.svg";
+  static const String men = "$rootImages/icones/men.svg";
+  static const String women = "$rootImages/icones/women.svg";
+  static const String sale = "$rootImages/icones/sale.svg";
   // picture
   static const String user = "$rootImages/picture/user.png";
+  // shoes
+  static const String adidasSuperstar =
+      "$rootImages/picture/shoes/Adidas Superstar.png";
+  static const String airMax2090 = "$rootImages/picture/shoes/Air Max 2090.png";
+  static const String nikeAirMax270 =
+      "$rootImages/picture/shoes/Nike Air Max 270.png";
+  static const String nikeReactMiler =
+      "$rootImages/picture/shoes/Nike React Miler .png";
 }

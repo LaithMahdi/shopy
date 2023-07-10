@@ -20,6 +20,11 @@ ThemeData themeEnglish = ThemeData(
       color: Color(0xFF3E4958),
       fontWeight: FontWeight.w600,
     ),
+    headlineSmall: TextStyle(
+      fontSize: 12,
+      color: Color(0xFF3E4958),
+      fontWeight: FontWeight.w600,
+    ),
   ),
 );
 
