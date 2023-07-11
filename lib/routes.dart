@@ -8,6 +8,7 @@ import 'package:shopy/view/screen/authentification/forgot%20password/password_re
 import 'package:shopy/view/screen/authentification/forgot%20password/recovery_code.dart';
 import 'package:shopy/view/screen/authentification/sign_in.dart';
 import 'package:shopy/view/screen/authentification/sign_up.dart';
+import 'package:shopy/view/screen/bottom%20navigation%20bar/custom_bottom_navigation_bar.dart';
 import 'package:shopy/view/screen/home/home.dart';
 import 'package:shopy/view/screen/onboarding/onboarding.dart';
 import 'package:shopy/view/screen/splash/splash_screen.dart';
@@ -31,4 +32,8 @@ List<GetPage<dynamic>>? routes = [
     page: () => const PasswordResetSuccessfulScreen(),
   ),
   GetPage(name: AppRoute.home, page: () => const HomeScreen()),
+  GetPage(
+    name: AppRoute.bottomNavigationBar,
+    page: () => const CustomBottomNavigationBar(),
+  ),
 ];

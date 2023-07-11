@@ -1,6 +1,7 @@
 class AppSize {
   // font size
   static const double fs = 18;
+  static const double fs1 = 10;
   // heignt
   static const double md = 16;
   static const double lg = 22;

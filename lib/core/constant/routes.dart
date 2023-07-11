@@ -12,4 +12,5 @@ class AppRoute {
   static const String passwordResetSuccessful = "/password_reset_successful";
   // home
   static const String home = "/home";
+  static const String bottomNavigationBar = "/bottom_navigation_bar";
 }
