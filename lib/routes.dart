@@ -12,6 +12,7 @@ import 'package:shopy/view/screen/bottom%20navigation%20bar/custom_bottom_naviga
 import 'package:shopy/view/screen/home/home.dart';
 import 'package:shopy/view/screen/onboarding/onboarding.dart';
 import 'package:shopy/view/screen/splash/splash_screen.dart';
+import 'package:shopy/view/screen/wishlist/wishlist_screen.dart';
 
 List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.splash, page: () => const SplashScreen()),
@@ -34,6 +35,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.home, page: () => const HomeScreen()),
   GetPage(
     name: AppRoute.bottomNavigationBar,
-    page: () => const CustomBottomNavigationBar(),
+    page: () => CustomBottomNavigationBar(),
   ),
+  GetPage(name: AppRoute.wishlist, page: () => const WishlistScreen()),
 ];

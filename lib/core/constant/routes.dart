@@ -13,4 +13,5 @@ class AppRoute {
   // home
   static const String home = "/home";
   static const String bottomNavigationBar = "/bottom_navigation_bar";
+  static const String wishlist = "/wishlist";
 }

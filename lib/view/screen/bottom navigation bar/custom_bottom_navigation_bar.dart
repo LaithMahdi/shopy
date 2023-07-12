@@ -4,60 +4,115 @@ import 'package:get/get.dart';
 import 'package:shopy/controller/bottom%20navigation%20bar/bottom_navigation_bar_controller.dart';
 import 'package:shopy/core/constant/color.dart';
 import 'package:shopy/core/constant/image_asset.dart';
+import 'package:shopy/view/screen/home/home.dart';
+import 'package:shopy/view/screen/wishlist/wishlist_screen.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
-  const CustomBottomNavigationBar({super.key});
+  final TextStyle unselectedLabelStyle = Get.textTheme.headlineSmall!.copyWith(
+    fontWeight: FontWeight.w400,
+  );
+
+  final TextStyle selectedLabelStyle = Get.textTheme.headlineSmall!.copyWith(
+    fontWeight: FontWeight.bold,
+  );
+
+  CustomBottomNavigationBar({super.key});
+
+  Widget buildBottomNavigationMenu(
+      context, BottomNavigationBarController landingPageController) {
+    return Obx(() => Container(
+          color: Colors.red,
+          width: Get.width,
+          height: 80,
+          child: BottomNavigationBar(
+            showUnselectedLabels: true,
+            showSelectedLabels: true,
+            onTap: landingPageController.changeTabIndex,
+            currentIndex: landingPageController.tabIndex.value,
+            unselectedItemColor: AppColor.primaryColorGrey4,
+            selectedItemColor: AppColor.primaryColorGrey3,
+            unselectedLabelStyle: unselectedLabelStyle,
+            selectedLabelStyle: selectedLabelStyle,
+            items: [
+              BottomNavigationBarItem(
+                label: "Home",
+                icon: Container(
+                  margin: const EdgeInsets.only(bottom: 7),
+                  child: SvgPicture.asset(
+                    AppImageAsset.home,
+                    color: landingPageController.tabIndex.value == 0
+                        ? AppColor.primaryColorGrey3
+                        : AppColor.primaryColorGrey4,
+                  ),
+                ),
+                backgroundColor: AppColor.primaryColorWhite,
+              ),
+              BottomNavigationBarItem(
+                icon: Container(
+                  margin: const EdgeInsets.only(bottom: 7),
+                  child: SvgPicture.asset(
+                    AppImageAsset.favorite,
+                    color: landingPageController.tabIndex.value == 1
+                        ? AppColor.primaryColorGrey3
+                        : AppColor.primaryColorGrey4,
+                  ),
+                ),
+                label: "About",
+                backgroundColor: AppColor.primaryColorWhite,
+              ),
+              BottomNavigationBarItem(
+                icon: Container(
+                  margin: const EdgeInsets.only(bottom: 7),
+                  child: SvgPicture.asset(
+                    AppImageAsset.shop,
+                    color: landingPageController.tabIndex.value == 2
+                        ? AppColor.primaryColorGrey3
+                        : AppColor.primaryColorGrey4,
+                  ),
+                ),
+                label: "Product",
+                backgroundColor: AppColor.primaryColorWhite,
+              ),
+              BottomNavigationBarItem(
+                icon: Container(
+                  margin: const EdgeInsets.only(bottom: 7),
+                  child: SvgPicture.asset(
+                    AppImageAsset.account,
+                    color: landingPageController.tabIndex.value == 3
+                        ? AppColor.primaryColorGrey3
+                        : AppColor.primaryColorGrey4,
+                  ),
+                ),
+                label: "Contact",
+                backgroundColor: AppColor.primaryColorWhite,
+              ),
+            ],
+          ),
+        ));
+  }
 
   @override
   Widget build(BuildContext context) {
-    BottomNavigationBarController controller =
-        Get.put(BottomNavigationBarController());
-    return Scaffold(
-      body: controller.pages[controller.selectedTab],
-      bottomNavigationBar: GetBuilder<BottomNavigationBarController>(
-        builder: (controller) => BottomNavigationBar(
-          currentIndex: controller.selectedTab,
-          onTap: (index) => controller.changeTab(index),
-          selectedItemColor: AppColor.primaryColorGrey3,
-          unselectedItemColor: AppColor.primaryColorGrey4,
-          items: [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                AppImageAsset.home,
-                color: controller.selectedTab == 0
-                    ? AppColor.primaryColorGrey3
-                    : AppColor.primaryColorGrey4,
-              ),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                AppImageAsset.favorite,
-                color: controller.selectedTab == 1
-                    ? AppColor.primaryColorGrey3
-                    : AppColor.primaryColorGrey4,
-              ),
-              label: "About",
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                AppImageAsset.shop,
-                color: controller.selectedTab == 2
-                    ? AppColor.primaryColorGrey3
-                    : AppColor.primaryColorGrey4,
-              ),
-              label: "Product",
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                AppImageAsset.account,
-                color: controller.selectedTab == 3
-                    ? AppColor.primaryColorGrey3
-                    : AppColor.primaryColorGrey4,
-              ),
-              label: "Contact",
-            ),
-          ],
+    final BottomNavigationBarController bottomNavigationBarController = Get.put(
+      BottomNavigationBarController(),
+      permanent: false,
+    );
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: buildBottomNavigationMenu(
+          context,
+          bottomNavigationBarController,
+        ),
+        body: Obx(
+          () => IndexedStack(
+            index: bottomNavigationBarController.tabIndex.value,
+            children: const [
+              HomeScreen(),
+              WishlistScreen(),
+              HomeScreen(),
+              HomeScreen(),
+            ],
+          ),
         ),
       ),
     );

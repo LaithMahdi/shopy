@@ -43,13 +43,11 @@ class CustomTextFormField extends StatelessWidget {
           onTap: onTapShowEye,
           child: Icon(icon),
         ),
-        border: OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSize.borderRaduis),
           borderSide: const BorderSide(
             color: AppColor.primaryColorGrey2,
-            width: AppSize.border,
-            strokeAlign: BorderSide.strokeAlignCenter,
-            style: BorderStyle.solid,
+            width: 0.5,
           ),
         ),
       ),

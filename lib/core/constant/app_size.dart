@@ -2,6 +2,7 @@ class AppSize {
   // font size
   static const double fs = 18;
   static const double fs1 = 10;
+  static const double fs2 = 6;
   // heignt
   static const double md = 16;
   static const double lg = 22;
@@ -10,6 +11,7 @@ class AppSize {
   static const double paddingContentScreen = 36;
   static const double paddingContentScreenMd = 28;
   static const double paddingBetween = 9;
+
   // text
   static const double textHeightSm = 2.4;
   // border
