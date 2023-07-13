@@ -61,6 +61,7 @@ class HomeScreen extends StatelessWidget {
                 itemCount: listGenres.length,
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
                 separatorBuilder: (context, index) => const SizedBox(
                   width: AppSize.paddingContentScreenMd,
                 ),
@@ -111,6 +112,7 @@ class HomeScreen extends StatelessWidget {
                     child: ListView.separated(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
+                      physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index) {
                         ShoesModel shoes = shoesList[index];
                         return CustomContainerShoesCard(

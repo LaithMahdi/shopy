@@ -6,7 +6,7 @@ import 'package:shopy/core/constant/color.dart';
 class CustomTextFormField extends StatelessWidget {
   final String hintText;
   final TextInputType keyboardType;
-  final IconData icon;
+  final IconData? icon;
   final TextEditingController controller;
   final bool? obscureText;
   final VoidCallback? onTapShowEye;
@@ -15,7 +15,7 @@ class CustomTextFormField extends StatelessWidget {
     super.key,
     required this.hintText,
     required this.keyboardType,
-    required this.icon,
+    this.icon,
     required this.controller,
     required this.validator,
     this.obscureText,
@@ -41,7 +41,7 @@ class CustomTextFormField extends StatelessWidget {
         ),
         suffixIcon: GestureDetector(
           onTap: onTapShowEye,
-          child: Icon(icon),
+          child: icon == null ? const SizedBox() : Icon(icon),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSize.borderRaduis),

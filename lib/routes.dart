@@ -9,6 +9,7 @@ import 'package:shopy/view/screen/authentification/forgot%20password/recovery_co
 import 'package:shopy/view/screen/authentification/sign_in.dart';
 import 'package:shopy/view/screen/authentification/sign_up.dart';
 import 'package:shopy/view/screen/bottom%20navigation%20bar/custom_bottom_navigation_bar.dart';
+import 'package:shopy/view/screen/cart/my_cart.dart';
 import 'package:shopy/view/screen/home/home.dart';
 import 'package:shopy/view/screen/onboarding/onboarding.dart';
 import 'package:shopy/view/screen/splash/splash_screen.dart';
@@ -20,9 +21,10 @@ List<GetPage<dynamic>>? routes = [
     HomeMiddleware(),
   ]),
   GetPage(
-      name: AppRoute.onboarding,
-      page: () => const OnboardingScreen(),
-      middlewares: [OnboardingMiddleware()]),
+    name: AppRoute.onboarding,
+    page: () => const OnboardingScreen(),
+    middlewares: [OnboardingMiddleware()],
+  ),
   GetPage(name: AppRoute.signUp, page: () => const SignUpScreen()),
   GetPage(
       name: AppRoute.forgotPassword, page: () => const ForgotPasswordScreen()),
@@ -38,4 +40,5 @@ List<GetPage<dynamic>>? routes = [
     page: () => CustomBottomNavigationBar(),
   ),
   GetPage(name: AppRoute.wishlist, page: () => const WishlistScreen()),
+  GetPage(name: AppRoute.myCart, page: () => const MyCartScreen()),
 ];

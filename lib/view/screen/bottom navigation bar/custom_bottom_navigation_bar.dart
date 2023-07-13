@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:shopy/controller/bottom%20navigation%20bar/bottom_navigation_bar_controller.dart';
 import 'package:shopy/core/constant/color.dart';
 import 'package:shopy/core/constant/image_asset.dart';
+import 'package:shopy/view/screen/cart/my_cart.dart';
 import 'package:shopy/view/screen/home/home.dart';
 import 'package:shopy/view/screen/wishlist/wishlist_screen.dart';
 
@@ -35,7 +36,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             selectedLabelStyle: selectedLabelStyle,
             items: [
               BottomNavigationBarItem(
-                label: "Home",
+                label: "57".tr,
                 icon: Container(
                   margin: const EdgeInsets.only(bottom: 7),
                   child: SvgPicture.asset(
@@ -57,7 +58,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                         : AppColor.primaryColorGrey4,
                   ),
                 ),
-                label: "About",
+                label: "53".tr,
                 backgroundColor: AppColor.primaryColorWhite,
               ),
               BottomNavigationBarItem(
@@ -70,7 +71,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                         : AppColor.primaryColorGrey4,
                   ),
                 ),
-                label: "Product",
+                label: "58".tr,
                 backgroundColor: AppColor.primaryColorWhite,
               ),
               BottomNavigationBarItem(
@@ -83,7 +84,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                         : AppColor.primaryColorGrey4,
                   ),
                 ),
-                label: "Contact",
+                label: "59".tr,
                 backgroundColor: AppColor.primaryColorWhite,
               ),
             ],
@@ -109,7 +110,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             children: const [
               HomeScreen(),
               WishlistScreen(),
-              HomeScreen(),
+              MyCartScreen(),
               HomeScreen(),
             ],
           ),

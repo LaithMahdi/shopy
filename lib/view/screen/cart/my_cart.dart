@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shopy/controller/wishlist/wishlist_controller.dart';
+import 'package:shopy/controller/cart/my_cart_controller.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
 import 'package:shopy/data/datasource/static/shoes_list.dart';
@@ -9,19 +9,17 @@ import 'package:shopy/view/widget/authentification/custom_primary_button.dart';
 import 'package:shopy/view/widget/authentification/custom_text_form_field.dart';
 import 'package:shopy/view/widget/back_button.dart';
 import 'package:shopy/view/widget/wishlist/custom_card_shoes_vertical.dart';
-import 'package:shopy/view/widget/wishlist/custom_wishlist_button.dart';
 
-class WishlistScreen extends StatelessWidget {
-  const WishlistScreen({super.key});
+class MyCartScreen extends StatelessWidget {
+  const MyCartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    WishlistControllerImp controller = Get.put(WishlistControllerImp());
+    MyCartControllerImp controller = Get.put(MyCartControllerImp());
     return Scaffold(
-      backgroundColor: AppColor.primaryColorWhite,
       appBar: AppBar(
         leading: const CustomBackButton(),
-        title: Text("53".tr, style: Get.textTheme.displayLarge),
+        title: Text("58".tr, style: Get.textTheme.displayLarge),
         backgroundColor: AppColor.primaryColorWhite,
         elevation: 0,
       ),
@@ -35,25 +33,12 @@ class WishlistScreen extends StatelessWidget {
               flex: 2,
               child: ListView(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "54".tr,
-                        style: Get.textTheme.headlineSmall!.copyWith(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      CustomWishlistButton(
-                        name: "55".tr,
-                        onTap: () {},
-                      ),
-                      CustomWishlistButton(
-                        name: "56".tr,
-                        onTap: () {},
-                      ),
-                    ],
+                  Text(
+                    "60".tr,
+                    style: Get.textTheme.headlineSmall!.copyWith(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                   const SizedBox(height: AppSize.borderRaduis),
                   CustomTextFormField(
@@ -65,12 +50,12 @@ class WishlistScreen extends StatelessWidget {
                       return null;
                     },
                   ),
-                  const SizedBox(height: AppSize.lg),
+                  const SizedBox(height: AppSize.paddingBetween),
                 ],
               ),
             ),
             Expanded(
-              flex: 5,
+              flex: 6,
               child: ListView(
                 physics: const BouncingScrollPhysics(),
                 children: [
@@ -95,15 +80,53 @@ class WishlistScreen extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 1,
+              flex: 3,
               child: ListView(
                 children: [
-                  const SizedBox(height: AppSize.fs1),
-                  CustomPrimaryButton(
-                    onPressed: () {},
-                    title: "61".tr,
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 4,
+                        child: CustomTextFormField(
+                          hintText: "63".tr,
+                          keyboardType: TextInputType.text,
+                          controller: controller.couponController,
+                          validator: (valid) {
+                            return null;
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: AppSize.buttonPadding),
+                      Expanded(
+                        flex: 2,
+                        child: CustomPrimaryButton(
+                          onPressed: () {},
+                          title: "62".tr,
+                          color: AppColor.primaryColorGrey2,
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: AppSize.fs1),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "64".tr,
+                        style: Get.textTheme.headlineLarge!.copyWith(
+                          color: AppColor.primaryColorGrey,
+                        ),
+                      ),
+                      Text(
+                        "\$282.00",
+                        style: Get.textTheme.headlineLarge!.copyWith(
+                          color: AppColor.primaryColorGrey,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: AppSize.md),
+                  CustomPrimaryButton(onPressed: () {}, title: "65".tr)
                 ],
               ),
             ),
