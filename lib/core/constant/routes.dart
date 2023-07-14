@@ -15,4 +15,6 @@ class AppRoute {
   static const String bottomNavigationBar = "/bottom_navigation_bar";
   static const String wishlist = "/wishlist";
   static const String myCart = "/my_cart";
+  static const String checkout = "/checkout";
+  static const String paymentMethod = "/payment_method";
 }

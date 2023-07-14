@@ -126,7 +126,10 @@ class MyCartScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: AppSize.md),
-                  CustomPrimaryButton(onPressed: () {}, title: "65".tr)
+                  CustomPrimaryButton(
+                    onPressed: () => controller.goToCheckout(),
+                    title: "65".tr,
+                  )
                 ],
               ),
             ),

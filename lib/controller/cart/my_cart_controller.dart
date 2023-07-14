@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopy/core/constant/routes.dart';
 
-abstract class MyCartController extends GetxController {}
+abstract class MyCartController extends GetxController {
+  goToCheckout();
+}
 
 class MyCartControllerImp extends MyCartController {
   late TextEditingController searchController;
@@ -13,4 +16,7 @@ class MyCartControllerImp extends MyCartController {
     couponController = TextEditingController();
     super.onInit();
   }
+
+  @override
+  goToCheckout() => Get.toNamed(AppRoute.checkout);
 }

@@ -16,8 +16,12 @@ class AppImageAsset {
   static const String favorite = "$rootImages/icones/favorite.svg";
   static const String account = "$rootImages/icones/account.svg";
   static const String shop = "$rootImages/icones/shop.svg";
+
   // picture
   static const String user = "$rootImages/picture/user.png";
+  static const String master = "$rootImages/picture/master.png";
+  static const String sim = "$rootImages/picture/sim.png";
+  static const String sim1 = "$rootImages/picture/sim1.png";
   // shoes
   static const String adidasSuperstar =
       "$rootImages/picture/shoes/Adidas Superstar.png";
