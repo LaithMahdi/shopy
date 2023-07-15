@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:shopy/controller/bottom%20navigation%20bar/bottom_navigation_bar_controller.dart';
 import 'package:shopy/core/constant/color.dart';
 import 'package:shopy/core/constant/image_asset.dart';
+import 'package:shopy/view/screen/account/account_screen.dart';
 import 'package:shopy/view/screen/cart/my_cart.dart';
 import 'package:shopy/view/screen/home/home.dart';
 import 'package:shopy/view/screen/wishlist/wishlist_screen.dart';
@@ -111,7 +112,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
               HomeScreen(),
               WishlistScreen(),
               MyCartScreen(),
-              HomeScreen(),
+              AccountScreen(),
             ],
           ),
         ),

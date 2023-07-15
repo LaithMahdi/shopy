@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:shopy/core/constant/routes.dart';
 import 'package:shopy/core/middleware/home_middleware.dart';
 import 'package:shopy/core/middleware/onboarding_middleware.dart';
+import 'package:shopy/view/screen/account/account_screen.dart';
 import 'package:shopy/view/screen/authentification/forgot%20password/forgot_password.dart';
 import 'package:shopy/view/screen/authentification/forgot%20password/new_password.dart';
 import 'package:shopy/view/screen/authentification/forgot%20password/password_reset_successful.dart';
@@ -46,4 +47,5 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.checkout, page: () => const CheckoutScreen()),
   GetPage(
       name: AppRoute.paymentMethod, page: () => const PaymentMethodScreen()),
+  GetPage(name: AppRoute.settings, page: () => const AccountScreen()),
 ];
