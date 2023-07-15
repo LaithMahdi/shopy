@@ -6,7 +6,7 @@ class SplashController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     Future.delayed(
-        const Duration(seconds: 2), () => Get.offAllNamed(AppRoute.login));
+        const Duration(seconds: 2), () => Get.offAllNamed(AppRoute.onboarding));
     super.onInit();
   }
 }

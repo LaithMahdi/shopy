@@ -28,4 +28,29 @@ ThemeData themeEnglish = ThemeData(
   ),
 );
 
-ThemeData themeArabic = ThemeData();
+ThemeData themeArabic = ThemeData(
+  fontFamily: "Cairo",
+  colorSchemeSeed: AppColor.primaryColorBlue,
+  textTheme: const TextTheme(
+    displayLarge: TextStyle(
+      fontSize: 26,
+      fontWeight: FontWeight.w600,
+      color: AppColor.primaryColorGrey,
+    ),
+    headlineLarge: TextStyle(
+      fontSize: 16,
+      color: AppColor.primaryColorWhite,
+      fontWeight: FontWeight.bold,
+    ),
+    headlineMedium: TextStyle(
+      fontSize: 14,
+      color: Color(0xFF3E4958),
+      fontWeight: FontWeight.w600,
+    ),
+    headlineSmall: TextStyle(
+      fontSize: 12,
+      color: Color(0xFF3E4958),
+      fontWeight: FontWeight.w600,
+    ),
+  ),
+);

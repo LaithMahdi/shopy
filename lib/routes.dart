@@ -20,14 +20,14 @@ import 'package:shopy/view/screen/wishlist/wishlist_screen.dart';
 
 List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.splash, page: () => const SplashScreen()),
-  GetPage(name: AppRoute.login, page: () => const SignInScreen(), middlewares: [
-    HomeMiddleware(),
-  ]),
   GetPage(
-    name: AppRoute.onboarding,
-    page: () => const OnboardingScreen(),
-    middlewares: [OnboardingMiddleware()],
-  ),
+      name: AppRoute.login,
+      page: () => const SignInScreen(),
+      middlewares: [HomeMiddleware()]),
+  GetPage(
+      name: AppRoute.onboarding,
+      page: () => const OnboardingScreen(),
+      middlewares: [OnboardingMiddleware()]),
   GetPage(name: AppRoute.signUp, page: () => const SignUpScreen()),
   GetPage(
       name: AppRoute.forgotPassword, page: () => const ForgotPasswordScreen()),

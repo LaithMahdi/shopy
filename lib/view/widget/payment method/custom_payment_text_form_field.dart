@@ -6,9 +6,11 @@ import 'package:shopy/core/constant/color.dart';
 class CustomPaymentTextFormField extends StatelessWidget {
   final String labelText;
   final TextEditingController controller;
+  final TextInputType keyboardType;
   const CustomPaymentTextFormField({
     super.key,
     required this.labelText,
+    required this.keyboardType,
     required this.controller,
   });
 
@@ -16,26 +18,23 @@ class CustomPaymentTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      keyboardType: keyboardType,
       style: Get.textTheme.headlineMedium!.copyWith(
         color: AppColor.primaryColorBlack,
         fontWeight: FontWeight.w500,
       ),
       decoration: InputDecoration(
         labelText: labelText,
-        labelStyle: Get.textTheme.headlineMedium!.copyWith(
-          fontSize: 16,
-        ),
+        labelStyle: Get.textTheme.headlineMedium!.copyWith(fontSize: 16),
         filled: true,
         fillColor: AppColor.primaryColorGrey1,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSize.borderRaduis),
-          borderSide: BorderSide.none,
+          borderSide: const BorderSide(color: AppColor.primaryColorGrey2),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSize.borderRaduis),
-          borderSide: const BorderSide(
-            color: AppColor.primaryColorGrey2,
-          ),
+          borderSide: const BorderSide(color: AppColor.primaryColorGrey2),
         ),
         floatingLabelBehavior: FloatingLabelBehavior.auto,
       ),

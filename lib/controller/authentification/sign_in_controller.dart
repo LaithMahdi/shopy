@@ -47,13 +47,13 @@ class SignInControllerImp extends SignInController {
   goToSignUp() => Get.toNamed(AppRoute.signUp);
 
   @override
-  signIn() {
+  signIn() async {
     if (formstate.currentState!.validate() == true) {
       for (var element in usersAccount) {
         if (element.mail == mailController.text &&
             element.password == passwordController.text) {
-          myServices.sharedPreferences.setBool("auth", true);
-          Get.offAllNamed(AppRoute.home);
+          await myServices.sharedPreferences.setBool("isLogin", true);
+          Get.offAllNamed(AppRoute.bottomNavigationBar);
         } else {
           print("error");
         }

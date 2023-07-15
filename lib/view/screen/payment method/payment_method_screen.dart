@@ -57,11 +57,13 @@ class PaymentMethodScreen extends StatelessWidget {
                 children: [
                   CustomPaymentTextFormField(
                     labelText: "68".tr,
+                    keyboardType: TextInputType.number,
                     controller: controller.cardNumber,
                   ),
                   const SizedBox(height: AppSize.paddingContentScreenMd),
                   CustomPaymentTextFormField(
                     labelText: "69".tr,
+                    keyboardType: TextInputType.text,
                     controller: controller.cardHolderName,
                   ),
                   const SizedBox(height: AppSize.paddingContentScreenMd),
@@ -70,6 +72,7 @@ class PaymentMethodScreen extends StatelessWidget {
                       Expanded(
                         child: CustomPaymentTextFormField(
                           labelText: "70".tr,
+                          keyboardType: TextInputType.datetime,
                           controller: controller.cardExpiryDate,
                         ),
                       ),
@@ -77,6 +80,7 @@ class PaymentMethodScreen extends StatelessWidget {
                       Expanded(
                         child: CustomPaymentTextFormField(
                           labelText: "71".tr,
+                          keyboardType: TextInputType.number,
                           controller: controller.cardSecurityCode,
                         ),
                       ),
@@ -85,6 +89,7 @@ class PaymentMethodScreen extends StatelessWidget {
                   const SizedBox(height: AppSize.paddingContentScreenMd),
                   CustomPaymentTextFormField(
                     labelText: "72".tr,
+                    keyboardType: TextInputType.number,
                     controller: controller.cardCVV,
                   ),
                   const SizedBox(height: AppSize.paddingContentScreen),

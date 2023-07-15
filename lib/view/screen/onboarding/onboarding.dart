@@ -12,7 +12,8 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => OnboardingControllerImp());
+    //Get.lazyPut(() => OnboardingControllerImp());
+    Get.put(OnboardingControllerImp());
     return Scaffold(
       backgroundColor: AppColor.primaryColorGrey1,
       body: Container(

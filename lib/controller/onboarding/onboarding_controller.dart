@@ -9,19 +9,21 @@ abstract class OnboardingController extends GetxController {
 }
 
 class OnboardingControllerImp extends OnboardingController {
-  MyServices myServices = Get.find();
+  MyServices services = Get.find();
   LocaleController localeController = Get.find();
   @override
-  changeLanguageToArabic() {
+  changeLanguageToArabic() async {
     localeController.changeLang("ar");
-    myServices.sharedPreferences.setBool("onboarding", true);
-    Get.offAllNamed(AppRoute.login);
+    await services.sharedPreferences.setBool("onboarding", true);
+    await services.sharedPreferences.setString("locale", "ar");
+    Get.offNamed(AppRoute.login);
   }
 
   @override
-  changeLanguageToEnglish() {
+  changeLanguageToEnglish() async {
     localeController.changeLang("en");
-    myServices.sharedPreferences.setBool("onboarding", true);
-    Get.offAllNamed(AppRoute.login);
+    await services.sharedPreferences.setBool("onboarding", true);
+    await services.sharedPreferences.setString("locale", "ar");
+    Get.offNamed(AppRoute.login);
   }
 }

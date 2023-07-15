@@ -10,8 +10,8 @@ class HomeMiddleware extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    if (myServices.sharedPreferences.getBool("auth") == true) {
-      return const RouteSettings(name: AppRoute.home);
+    if (myServices.sharedPreferences.getBool("isLogin") == true) {
+      return const RouteSettings(name: AppRoute.bottomNavigationBar);
     }
     return null;
   }

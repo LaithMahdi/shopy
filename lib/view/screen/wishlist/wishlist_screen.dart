@@ -33,7 +33,7 @@ class WishlistScreen extends StatelessWidget {
           children: [
             Expanded(
               flex: 2,
-              child: ListView(
+              child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -70,7 +70,7 @@ class WishlistScreen extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 5,
+              flex: 6,
               child: ListView(
                 physics: const BouncingScrollPhysics(),
                 children: [
@@ -96,15 +96,12 @@ class WishlistScreen extends StatelessWidget {
             ),
             Expanded(
               flex: 1,
-              child: ListView(
-                children: [
-                  const SizedBox(height: AppSize.fs1),
-                  CustomPrimaryButton(
-                    onPressed: () {},
-                    title: "61".tr,
-                  ),
-                  const SizedBox(height: AppSize.fs1),
-                ],
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: AppSize.fs2),
+                child: CustomPrimaryButton(
+                  onPressed: () {},
+                  title: "61".tr,
+                ),
               ),
             ),
           ],
