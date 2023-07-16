@@ -17,7 +17,7 @@ class AccountControllerImp extends AccountController {
   LocaleController localeController = Get.find();
   @override
   void logout() async {
-    await services.sharedPreferences.setBool("isLogin", false);
+    await services.sharedPreferences.remove("token");
     Get.offAllNamed(AppRoute.login);
   }
 

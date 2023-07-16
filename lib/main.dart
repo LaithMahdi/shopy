@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopy/binding/initial_bindings.dart';
 import 'package:shopy/core/localization/changelocal.dart';
 import 'package:shopy/core/localization/translation.dart';
 import 'package:shopy/core/services/my_services.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       theme: controller.appTheme,
       locale: controller.language,
       getPages: routes,
+      initialBinding: InitialBindings(),
     );
   }
 }

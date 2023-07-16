@@ -1,19 +1,35 @@
 class UserModel {
-  final int id;
-  final String username;
-  final String picture;
-  final String mail;
-  final String phone;
-  final String password;
-  final int verifyCode;
+  int id;
+  String name;
+  String email;
+  String password;
 
   UserModel({
     required this.id,
-    required this.username,
-    required this.picture,
-    required this.mail,
-    required this.phone,
+    required this.name,
+    required this.email,
     required this.password,
-    required this.verifyCode,
   });
+
+  UserModel.fromJson(
+    Map<String, dynamic> json,
+    this.id,
+    this.name,
+    this.email,
+    this.password,
+  ) {
+    id = json['id'];
+    name = json['name'];
+    email = json['email'];
+    password = json['password'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['email'] = email;
+    data['password'] = password;
+    return data;
+  }
 }
