@@ -104,10 +104,12 @@ class MyTranslation extends Translations {
               "كلمة السر غير صحيحة. يرجى التحقق مرة أخرى من كلمة المرور الخاصة بك وحاول مرة أخرى.",
           "92": "تنبيه",
           "93": "خطأ في النظام",
-          "94": "",
-          "95": "",
-          "96": "",
-          "97": "",
+          "94": "يوجد بالفعل مستخدم بهذا البريد الإلكتروني.",
+          "95":
+              "يوجد مستخدم بهذا البريد الإلكتروني بالفعل. الرجاء استخدام بريد إلكتروني مختلف أو حاول تسجيل الدخول.",
+          "96": "تم التسجيل بنجاح",
+          "97":
+              "تهانينا! تم تسجيلكم بنجاح. أهلا بك في مجتمعنا. يسعدنا انضمامك إلينا",
           "98": "",
           "99": "",
           "100": "",
@@ -213,10 +215,12 @@ class MyTranslation extends Translations {
               "Incorrect password. Please double-check your password and try again.",
           "92": "Warning",
           "93": "System error",
-          "94": "",
-          "95": "",
-          "96": "",
-          "97": "",
+          "94": "User with this email already exists",
+          "95":
+              "User with this email already exists. Please use a different email or try logging in.",
+          "96": "Registration successful",
+          "97":
+              "Congratulations! Your registration was successful. Welcome to our community. We're excited to have you on board",
           "98": "",
           "99": "",
           "100": "",

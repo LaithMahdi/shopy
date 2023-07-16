@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
 
-getCustomSnackBar(String title, String message) => Get.showSnackbar(
+getCustomSnackBar(String title, String message, bool isSuccess) =>
+    Get.showSnackbar(
       GetSnackBar(
-        backgroundColor: AppColor.primaryColorRed,
+        backgroundColor:
+            isSuccess ? AppColor.primaryColorGreen : AppColor.primaryColorRed,
         title: title,
         duration: const Duration(seconds: 3),
         messageText: Text(
@@ -16,8 +18,8 @@ getCustomSnackBar(String title, String message) => Get.showSnackbar(
           ),
         ),
         isDismissible: true,
-        icon: const Icon(
-          Icons.dangerous,
+        icon: Icon(
+          isSuccess ? Icons.check_circle : Icons.dangerous,
           size: AppSize.paddingContentScreenMd,
           color: AppColor.primaryColorWhite,
         ),

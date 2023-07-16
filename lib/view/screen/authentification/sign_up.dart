@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shopy/controller/authentification/sign_in_controller.dart';
 import 'package:shopy/controller/authentification/sign_up_controller.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
@@ -45,7 +44,7 @@ class SignUpScreen extends StatelessWidget {
               validator: (valid) {
                 return validInput(valid!, 5, 30, "username");
               },
-              controller: controller.mailController,
+              controller: controller.nameController,
             ),
             const SizedBox(height: AppSize.lg),
             CustomTextAuth(title: "3".tr),
@@ -62,7 +61,7 @@ class SignUpScreen extends StatelessWidget {
             const SizedBox(height: AppSize.lg),
             CustomTextAuth(title: "4".tr),
             const SizedBox(height: AppSize.paddingBetween),
-            GetBuilder<SignInControllerImp>(
+            GetBuilder<SignUpControllerImp>(
               builder: (controller) => CustomTextFormField(
                 hintText: "**********",
                 icon: controller.isShowPassword == true
@@ -79,7 +78,7 @@ class SignUpScreen extends StatelessWidget {
             ),
             const SizedBox(height: AppSize.xlg),
             CustomPrimaryButton(
-              onPressed: () {},
+              onPressed: () => controller.signUp(),
               title: "8".tr,
             ),
             const SizedBox(height: AppSize.xlg),

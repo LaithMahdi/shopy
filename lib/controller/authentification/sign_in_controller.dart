@@ -5,7 +5,7 @@ import 'package:shopy/core/constant/routes.dart';
 import 'package:shopy/core/functions/get_snackbar.dart';
 import 'package:shopy/core/functions/handle_data.dart';
 import 'package:shopy/core/services/my_services.dart';
-import 'package:shopy/data/remote/authentification/SignInData.dart';
+import 'package:shopy/data/remote/authentification/sign_in_data.dart';
 
 abstract class SignInController extends GetxController {
   goToSignUp();
@@ -64,14 +64,14 @@ class SignInControllerImp extends SignInController {
           await myServices.sharedPreferences.setString("token", token);
           Get.offAllNamed(AppRoute.bottomNavigationBar);
         } else if (response["detail"] == "User not found") {
-          getCustomSnackBar("88".tr, "90".tr);
+          getCustomSnackBar("88".tr, "90".tr, false);
           statusRequest = StatusRequest.failure;
         } else if (response["detail"] == "Incorrect password!") {
-          getCustomSnackBar("89".tr, "91".tr);
+          getCustomSnackBar("89".tr, "91".tr, false);
           statusRequest = StatusRequest.failure;
         }
       } else {
-        getCustomSnackBar("92".tr, "93".tr);
+        getCustomSnackBar("92".tr, "93".tr, false);
         statusRequest = StatusRequest.failure;
       }
       update();
