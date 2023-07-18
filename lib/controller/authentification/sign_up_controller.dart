@@ -17,7 +17,7 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController nameController;
   late TextEditingController mailController;
   late TextEditingController passwordController;
-  late StatusRequest statusRequest;
+  StatusRequest? statusRequest;
   SignUpData signUpData = SignUpData(Get.find());
   @override
   void onInit() {
@@ -28,10 +28,10 @@ class SignUpControllerImp extends SignUpController {
   }
 
   @override
-  @override
   void signUp() async {
     if (formstate.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
+      update();
       var response = await signUpData.postData(
           nameController.text, mailController.text, passwordController.text);
 
@@ -48,9 +48,7 @@ class SignUpControllerImp extends SignUpController {
         statusRequest = StatusRequest.failure;
       }
       update();
-    } else {
-      // Handle form validation failure
-    }
+    } else {}
   }
 
   @override

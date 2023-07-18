@@ -14,7 +14,9 @@ class Crud {
           Map responsebody = jsonDecode(response.body);
           print("responsebody $responsebody");
           return Right(responsebody);
-        } else if (response.statusCode == 403 || response.statusCode == 400) {
+        } else if (response.statusCode == 403 ||
+            response.statusCode == 400 ||
+            response.statusCode == 404) {
           Map responsebody = jsonDecode(response.body);
           return Right(responsebody);
         } else {

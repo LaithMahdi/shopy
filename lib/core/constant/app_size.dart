@@ -20,8 +20,8 @@ class AppSize {
   // button
   static const double buttonPadding = 20;
   // otp
-  static const int numberOfField = 4;
-  static const double widthOfField = 60;
+  static const int numberOfField = 6;
+  static const double widthOfField = 45;
   // icon
   static const double successIcon = 110;
   static const double successIconMd = 130;

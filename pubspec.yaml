@@ -40,8 +40,8 @@ dependencies:
   flutter_svg: ^2.0.7
   flutter_otp_text_field: ^1.1.1
   dartz: ^0.10.1
-  dio: ^5.2.1+1
   http: ^1.1.0
+  lottie: ^2.5.0
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +69,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/icones/
+    - assets/images/lottie/
     - assets/images/picture/
     - assets/images/picture/shoes/
     # - images/a_dot_ham.jpeg

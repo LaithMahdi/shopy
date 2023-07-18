@@ -30,4 +30,7 @@ class AppImageAsset {
       "$rootImages/picture/shoes/Nike Air Max 270.png";
   static const String nikeReactMiler =
       "$rootImages/picture/shoes/Nike React Miler .png";
+  // Lottie
+  static const String lottieLoading = "$rootImages/lottie/loading.json";
+  static const String lottieSuccess = "$rootImages/lottie/success.json";
 }

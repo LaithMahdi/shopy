@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shopy/core/constant/app_size.dart';
-import 'package:shopy/core/constant/color.dart';
+import 'package:shopy/core/class/status_request.dart';
 import 'package:shopy/core/constant/routes.dart';
+import 'package:shopy/core/functions/get_snackbar.dart';
+import 'package:shopy/core/functions/handle_data.dart';
+import 'package:shopy/data/remote/authentification/forgot%20password/rest_password_data.dart';
 
 abstract class NewPasswordController extends GetxController {
   showPassword();
@@ -16,10 +18,14 @@ class NewPasswordControllerImp extends NewPasswordController {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   bool isShowPassword = true;
   bool isNewShowPassword = true;
+  StatusRequest? statusRequest;
+  RestPasswordData restPasswordData = RestPasswordData(Get.find());
+  late String email;
 
   @override
   void onInit() {
     // TODO: implement onInit
+    email = Get.arguments["email"];
     passwordController = TextEditingController();
     newPasswordController = TextEditingController();
     super.onInit();
@@ -38,29 +44,26 @@ class NewPasswordControllerImp extends NewPasswordController {
   }
 
   @override
-  updatePassword() {
+  updatePassword() async {
     if (formstate.currentState!.validate() == true) {
       if (passwordController.text == newPasswordController.text) {
-        Get.offAllNamed(AppRoute.passwordResetSuccessful);
+        statusRequest = StatusRequest.loading;
+        update();
+        var response =
+            await restPasswordData.postData(email, newPasswordController.text);
+
+        statusRequest = handlingData(response);
+        if (StatusRequest.success == statusRequest) {
+          print(response);
+          if (response["message"] != null) {
+            Get.offAllNamed(AppRoute.passwordResetSuccessful);
+          }
+        } else {
+          statusRequest = StatusRequest.failure;
+        }
+        update();
       } else {
-        Get.defaultDialog(
-          title: "35".tr,
-          content: Text(
-            "36".tr,
-            style: Get.textTheme.headlineMedium!.copyWith(
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-          radius: AppSize.borderRaduis,
-          titleStyle: Get.textTheme.headlineLarge!.copyWith(
-            color: AppColor.primaryColorGrey,
-          ),
-          barrierDismissible: true,
-          titlePadding: const EdgeInsets.all(AppSize.md),
-          textConfirm: "28".tr,
-          textCancel: "29".tr,
-          onConfirm: () => Get.back(),
-        );
+        getCustomSnackBar("35".tr, "36".tr, false);
       }
     }
   }

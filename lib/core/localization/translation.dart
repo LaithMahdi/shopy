@@ -27,8 +27,8 @@ class MyTranslation extends Translations {
           "20": "الإنجليزية",
           "21":
               "حدد تفاصيل الاتصال التي يجب أن نستخدمها لإعادة تعيين كلمة المرور الخاصة بك:",
-          "22": "عبر الرسائل القصيرة:",
-          "23": "عبر البريد الالكتروني:",
+          "22": "إرسال رمز الاسترداد",
+          "23": "تم إرسال رمز التحقق بنجاح.",
           "24": "رمز الاسترداد",
           "25":
               "تم إرسال رمز الاسترداد إلى هاتفك المحمول. وقت انتهاء صلاحية الرمز هو 120 ثانية.\nالرجاء إدخال الرمز:",
@@ -110,7 +110,8 @@ class MyTranslation extends Translations {
           "96": "تم التسجيل بنجاح",
           "97":
               "تهانينا! تم تسجيلكم بنجاح. أهلا بك في مجتمعنا. يسعدنا انضمامك إلينا",
-          "98": "",
+          "98":
+              "تم إرسال رمز التحقق بنجاح! يرجى التحقق من بريدك الإلكتروني للحصول على الرمز.",
           "99": "",
           "100": "",
         },
@@ -138,8 +139,8 @@ class MyTranslation extends Translations {
           "20": "English",
           "21":
               "Select which contact details should we use to reset your password:",
-          "22": "via sms:",
-          "23": "via email:",
+          "22": "Send recovery code",
+          "23": "Verification code sent successfully.",
           "24": "Recovery code",
           "25":
               "The recovery code was sent to your mobile. Code expiration time is 120s.\nPlease enter the code:",
@@ -221,7 +222,8 @@ class MyTranslation extends Translations {
           "96": "Registration successful",
           "97":
               "Congratulations! Your registration was successful. Welcome to our community. We're excited to have you on board",
-          "98": "",
+          "98":
+              "Verification code sent successfully! Please check your email for the code.",
           "99": "",
           "100": "",
         }

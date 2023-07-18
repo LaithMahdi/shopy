@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
+import 'package:shopy/controller/authentification/forgot%20password/password_reset_successful_controller.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
-import 'package:shopy/view/screen/authentification/forgot%20password/password_reset_successful_controller.dart';
-import 'package:shopy/view/widget/authentification/forgot_password/successful_message.dart';
+import 'package:shopy/core/constant/image_asset.dart';
 
 import '../../../widget/authentification/custom_primary_button.dart';
 
@@ -17,7 +18,10 @@ class PasswordResetSuccessfulScreen extends StatelessWidget {
         child: Column(
           children: [
             const Spacer(),
-            const SuccessfulMessage(),
+            LottieBuilder.asset(
+              AppImageAsset.lottieSuccess,
+              width: Get.width * 0.4,
+            ),
             const SizedBox(height: AppSize.borderRaduis),
             SizedBox(
               width: Get.width * 0.5,
@@ -38,7 +42,7 @@ class PasswordResetSuccessfulScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: Get.textTheme.headlineMedium!.copyWith(
                   fontWeight: FontWeight.w500,
-                  color: AppColor.primaryColorGrey2,
+                  color: AppColor.primaryColorGrey4,
                 ),
               ),
             ),

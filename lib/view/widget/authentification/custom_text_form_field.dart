@@ -49,19 +49,21 @@ class CustomTextFormField extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppSize.borderRaduis),
             borderSide: const BorderSide(
-                color: AppColor.primaryColorGrey2, width: 0.5)),
+                color: AppColor.primaryColorGrey2, width: 1.5)),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSize.borderRaduis),
-          borderSide: const BorderSide(color: AppColor.primaryColorGrey1),
+          borderSide:
+              const BorderSide(color: AppColor.primaryColorGrey2, width: 1.5),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSize.borderRaduis),
-          borderSide: const BorderSide(color: AppColor.primaryColorGrey1),
+          borderSide:
+              const BorderSide(color: AppColor.primaryColorGrey2, width: 1.5),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSize.borderRaduis),
           borderSide:
-              const BorderSide(color: AppColor.primaryColorRed, width: 2),
+              const BorderSide(color: AppColor.primaryColorRed, width: 1.5),
         ),
       ),
     );

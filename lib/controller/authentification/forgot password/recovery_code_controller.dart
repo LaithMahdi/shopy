@@ -1,54 +1,48 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shopy/core/constant/app_size.dart';
-import 'package:shopy/core/constant/color.dart';
+import 'package:shopy/core/class/status_request.dart';
 import 'package:shopy/core/constant/routes.dart';
+import 'package:shopy/core/functions/get_snackbar.dart';
+import 'package:shopy/core/functions/handle_data.dart';
+import 'package:shopy/data/remote/authentification/forgot%20password/check_verify_code_data.dart';
 
 abstract class RecoveryCodeController extends GetxController {
   goToNextNewPassword(String code);
-  bool compareTo(String code);
   sendAgain();
 }
 
 class RecoveryCodeControllerImp extends RecoveryCodeController {
-  late String verificationCode;
+  late String email;
+  StatusRequest? statusRequest;
+  CheckVerifyCodeData checkVerifyCodeData = CheckVerifyCodeData(Get.find());
   @override
   void onInit() {
     // TODO: implement onInit
-    verificationCode = "4444";
+    email = Get.arguments["email"];
+    print(email);
     super.onInit();
   }
 
   @override
-  bool compareTo(String code) {
-    return code == verificationCode ? true : false;
-  }
+  goToNextNewPassword(String code) async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await checkVerifyCodeData.postData(email, code);
 
-  @override
-  goToNextNewPassword(String code) {
-    bool result = compareTo(code);
-    if (result) {
-      Get.offNamed(AppRoute.newPassword);
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      print(response);
+      if (response["message"] != null) {
+        Get.offNamed(AppRoute.newPassword, arguments: {
+          "email": email,
+        });
+      } else if (response["error"] == "Invalid verification code.") {
+        getCustomSnackBar("26".tr, "27".tr, false);
+        statusRequest = StatusRequest.failure;
+      }
     } else {
-      Get.defaultDialog(
-        title: "26".tr,
-        content: Text(
-          "27".tr,
-          style: Get.textTheme.headlineMedium!.copyWith(
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        radius: AppSize.borderRaduis,
-        titleStyle: Get.textTheme.headlineLarge!.copyWith(
-          color: AppColor.primaryColorGrey,
-        ),
-        barrierDismissible: true,
-        titlePadding: const EdgeInsets.all(AppSize.md),
-        textConfirm: "28".tr,
-        textCancel: "29".tr,
-        onConfirm: () => Get.back(),
-      );
+      statusRequest = StatusRequest.failure;
     }
+    update();
   }
 
   @override
