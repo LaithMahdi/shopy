@@ -3,14 +3,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
+import 'package:shopy/core/constant/image_asset.dart';
+import 'package:shopy/data/model/category_model.dart';
 
 class CustomGenreImageAndText extends StatelessWidget {
-  final String name;
-  final String picture;
+  final CategoryModel categoryModel;
+
   const CustomGenreImageAndText({
     super.key,
-    required this.name,
-    required this.picture,
+    required this.categoryModel,
   });
 
   @override
@@ -29,7 +30,7 @@ class CustomGenreImageAndText extends StatelessWidget {
             ),
           ),
           child: SvgPicture.asset(
-            picture,
+            "${AppImageAsset.rootImages}/icones/${categoryModel.categoryPicture}",
             width: AppSize.paddingContentScreen,
             height: AppSize.paddingContentScreen,
             color: AppColor.primaryColorBlue,
@@ -37,7 +38,7 @@ class CustomGenreImageAndText extends StatelessWidget {
         ),
         const SizedBox(height: AppSize.paddingBetween),
         Text(
-          name,
+          categoryModel.categoryName,
           style: Get.textTheme.headlineSmall,
         )
       ],

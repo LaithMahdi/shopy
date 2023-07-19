@@ -8,10 +8,7 @@ class AppImageAsset {
   static const String phone = "$rootImages/icones/phone.svg";
   static const String mail = "$rootImages/icones/mail.svg";
   static const String camera = "$rootImages/icones/camera.svg";
-  static const String kid = "$rootImages/icones/kid.svg";
-  static const String men = "$rootImages/icones/men.svg";
-  static const String women = "$rootImages/icones/women.svg";
-  static const String sale = "$rootImages/icones/sale.svg";
+
   static const String home = "$rootImages/icones/home.svg";
   static const String favorite = "$rootImages/icones/favorite.svg";
   static const String account = "$rootImages/icones/account.svg";

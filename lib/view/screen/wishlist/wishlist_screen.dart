@@ -73,24 +73,24 @@ class WishlistScreen extends StatelessWidget {
               flex: 6,
               child: ListView(
                 physics: const BouncingScrollPhysics(),
-                children: [
-                  SizedBox(
-                    height: Get.height * 0.8,
-                    child: ListView.separated(
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        ShoesModel shoes = shoesList[index];
-                        return CustomCardShoesVertical(
-                          picture: shoes.picture,
-                          name: shoes.name,
-                          prise: shoes.prise,
-                        );
-                      },
-                      separatorBuilder: (context, index) =>
-                          const SizedBox(height: AppSize.md),
-                      itemCount: shoesList.length,
-                    ),
-                  ),
+                children: const [
+                  // SizedBox(
+                  //   height: Get.height * 0.8,
+                  //   child: ListView.separated(
+                  //     physics: const NeverScrollableScrollPhysics(),
+                  //     itemBuilder: (context, index) {
+                  //       ShoesModel shoes = shoesList[index];
+                  //       return CustomCardShoesVertical(
+                  //         picture: shoes.picture,
+                  //         name: shoes.name,
+                  //         prise: shoes.prise,
+                  //       );
+                  //     },
+                  //     separatorBuilder: (context, index) =>
+                  //         const SizedBox(height: AppSize.md),
+                  //     itemCount: shoesList.length,
+                  //   ),
+                  // ),
                 ],
               ),
             ),
