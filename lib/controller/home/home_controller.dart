@@ -4,6 +4,7 @@ import 'package:shopy/core/class/status_request.dart';
 import 'package:shopy/core/constant/routes.dart';
 import 'package:shopy/core/functions/get_snackbar.dart';
 import 'package:shopy/core/functions/handle_data.dart';
+import 'package:shopy/core/services/my_services.dart';
 import 'package:shopy/data/model/category_model.dart';
 import 'package:shopy/data/model/shoes_model.dart';
 import 'package:shopy/data/remote/home/home_data.dart';
@@ -17,13 +18,16 @@ class HomeControllerImpl extends HomeController {
   final List<CategoryModel> category = [];
   final List<ShoesModel> shoes = [];
   HomeData homeData = HomeData(Get.find());
+  MyServices myServices = Get.find();
   StatusRequest? statusRequest;
   late TextEditingController searchController;
+  String? lang;
   @override
   void onInit() {
     // TODO: implement onInit
     searchController = TextEditingController();
     getData();
+    lang = myServices.sharedPreferences.getString("lang");
     super.onInit();
   }
 

@@ -4,6 +4,7 @@ import 'package:shopy/controller/home/category/category_controller.dart';
 import 'package:shopy/core/class/handling_data_view.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
+import 'package:shopy/core/functions/translate_database.dart';
 import 'package:shopy/data/model/category_model.dart';
 import 'package:shopy/view/widget/back_button.dart';
 import 'package:shopy/view/widget/home/custom_container_shoes_card.dart';
@@ -27,7 +28,7 @@ class CategoryScreen extends StatelessWidget {
           children: [
             const SizedBox(height: AppSize.borderRaduis),
             SizedBox(
-              height: Get.height * 0.05,
+              height: Get.height * 0.06,
               child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
@@ -47,7 +48,7 @@ class CategoryScreen extends StatelessWidget {
                             padding: const EdgeInsets.fromLTRB(
                                 AppSize.fs, 0, AppSize.fs, 4),
                             child: Text(
-                              category.categoryName,
+                              "${translateDatabase(category.categoryName, category.categoryNameAr)}",
                               style: Get.textTheme.headlineLarge!.copyWith(
                                   color: controller.selCat == category.id
                                       ? AppColor.primaryColorBlue
@@ -71,7 +72,6 @@ class CategoryScreen extends StatelessWidget {
             GetBuilder<CategoryControllerImp>(
               builder: (controller) => Container(
                   padding: EdgeInsets.zero,
-                  height: Get.height * 0.7,
                   child: HandlingDataView(
                     statusRequest: controller.statusRequest,
                     widget: GridView.builder(
@@ -83,7 +83,7 @@ class CategoryScreen extends StatelessWidget {
                         crossAxisCount: 2, // number of items in each row
                         mainAxisSpacing: 8.0, // spacing between rows
                         crossAxisSpacing: 8.0,
-                        childAspectRatio: 0.65,
+                        childAspectRatio: 0.63,
                       ),
                       itemBuilder: (context, index) {
                         return CustomContainerShoesCard(

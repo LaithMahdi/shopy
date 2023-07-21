@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -6,6 +7,7 @@ import 'package:shopy/core/class/status_request.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
 import 'package:shopy/core/constant/image_asset.dart';
+import 'package:shopy/core/functions/translate_database.dart';
 import 'package:shopy/view/widget/authentification/custom_primary_button.dart';
 import 'package:shopy/view/widget/back_button.dart';
 
@@ -33,23 +35,24 @@ class DetailScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      flex: 5,
-                      child: Image.network(
-                        controller.shoesModel!.shoesPicture,
-                        fit: BoxFit.fill,
-                        width: Get.width,
+                      flex: 4,
+                      child: Hero(
+                        tag: controller.shoesModel!.id,
+                        child: CachedNetworkImage(
+                          imageUrl: controller.shoesModel!.shoesPicture,
+                          fit: BoxFit.fill,
+                          width: Get.width,
+                        ),
                       ),
                     ),
-
-                    //const SizedBox(height: AppSize.md),
                     Expanded(
-                      flex: 3,
+                      flex: 4,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const SizedBox(height: AppSize.fs),
                           Text(
-                            controller.shoesModel!.shoesName,
+                            "${translateDatabase(controller.shoesModel!.shoesName, controller.shoesModel!.shoesNameAr)}",
                             style: Get.textTheme.headlineLarge!.copyWith(
                               color: AppColor.primaryColorGrey,
                               fontSize: AppSize.fs,
@@ -108,7 +111,7 @@ class DetailScreen extends StatelessWidget {
                           const SizedBox(height: AppSize.md),
                           Flexible(
                             child: Text(
-                              controller.shoesModel!.shoesDescription,
+                              "${translateDatabase(controller.shoesModel!.shoesDescription, controller.shoesModel!.shoesDescriptionAr)}",
                               style: Get.textTheme.headlineSmall!.copyWith(
                                 color: AppColor.primaryColorGrey4,
                                 fontWeight: FontWeight.w500,

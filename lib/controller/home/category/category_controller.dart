@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:shopy/core/class/status_request.dart';
 import 'package:shopy/core/functions/get_snackbar.dart';
 import 'package:shopy/core/functions/handle_data.dart';
+import 'package:shopy/core/services/my_services.dart';
 import 'package:shopy/data/model/shoes_model.dart';
 import 'package:shopy/data/remote/home/category/category_data.dart';
 
@@ -16,6 +17,8 @@ class CategoryControllerImp extends CategoryController {
   StatusRequest statusRequest = StatusRequest.none;
   List shoes = [];
   ShoesByCategoryData shoesByCategoryData = ShoesByCategoryData(Get.find());
+  MyServices myServices = Get.find();
+  String? lang;
   @override
   void onInit() {
     getArg();
@@ -26,6 +29,7 @@ class CategoryControllerImp extends CategoryController {
   getArg() {
     selCat = Get.arguments["selCat"];
     category = Get.arguments["categories"];
+    lang = myServices.sharedPreferences.getString("lang");
   }
 
   @override

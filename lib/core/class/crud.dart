@@ -36,7 +36,8 @@ class Crud {
         var response = await http.get(Uri.parse(linkurl));
         print("crudd ----- ${response.statusCode}");
         if (response.statusCode == 200 || response.statusCode == 201) {
-          dynamic responsebody = jsonDecode(response.body);
+          //jsonDecode(utf8.decode(res.bodyBytes))
+          dynamic responsebody = jsonDecode(utf8.decode(response.bodyBytes));
           print("responsebody $responsebody");
           return Right(responsebody);
         } else if (response.statusCode == 403 ||

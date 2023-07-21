@@ -44,20 +44,24 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Positioned(
-                            child: CustomSlideCard(
-                              picture: AppImageAsset.airMax2090,
-                              genre: "40".tr,
-                              name: "41".tr,
-                              onPressed: () {},
-                            ),
+                          CustomSlideCard(
+                            picture: AppImageAsset.airMax2090,
+                            genre: "40".tr,
+                            name: "41".tr,
+                            onPressed: () {},
                           ),
                         ],
                       ),
                     ),
+                    // CustomSlideCard(
+                    //   picture: AppImageAsset.airMax2090,
+                    //   genre: "40".tr,
+                    //   name: "41".tr,
+                    //   onPressed: () {},
+                    // ),
                     const SizedBox(height: AppSize.buttonPadding),
                     Container(
-                      height: Get.height * 0.12,
+                      height: Get.height * 0.13,
                       padding: const EdgeInsets.symmetric(
                         horizontal: AppSize.paddingContentScreen,
                       ),

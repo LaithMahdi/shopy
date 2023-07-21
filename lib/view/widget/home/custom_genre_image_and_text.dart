@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
 import 'package:shopy/core/constant/image_asset.dart';
+import 'package:shopy/core/functions/translate_database.dart';
 import 'package:shopy/data/model/category_model.dart';
 
 class CustomGenreImageAndText extends StatelessWidget {
@@ -41,7 +42,7 @@ class CustomGenreImageAndText extends StatelessWidget {
           ),
           const SizedBox(height: AppSize.paddingBetween),
           Text(
-            categoryModel.categoryName,
+            "${translateDatabase(categoryModel.categoryName, categoryModel.categoryNameAr)}",
             style: Get.textTheme.headlineSmall,
           )
         ],

@@ -5,6 +5,7 @@ import 'package:shopy/controller/home/home_controller.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
 import 'package:shopy/core/constant/routes.dart';
+import 'package:shopy/core/functions/translate_database.dart';
 import 'package:shopy/data/model/shoes_model.dart';
 
 class CustomShoesWithDiscountHomeScreen extends GetView<HomeControllerImpl> {
@@ -13,7 +14,7 @@ class CustomShoesWithDiscountHomeScreen extends GetView<HomeControllerImpl> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Get.height * 0.3,
+      height: Get.height * 0.31,
       child: ListView.separated(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
@@ -68,11 +69,14 @@ class CustomContainerShoesCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(AppSize.borderRaduis),
-                child: CachedNetworkImage(
-                  imageUrl: shoesModel.shoesPicture,
-                  width: Get.width * 0.4,
-                  height: Get.height * 0.18,
-                  fit: BoxFit.fill,
+                child: Hero(
+                  tag: shoesModel.id,
+                  child: CachedNetworkImage(
+                    imageUrl: shoesModel.shoesPicture,
+                    width: Get.width * 0.4,
+                    height: Get.height * 0.18,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               Positioned(
@@ -93,7 +97,7 @@ class CustomContainerShoesCard extends StatelessWidget {
           ),
           const SizedBox(height: AppSize.md),
           Text(
-            shoesModel.shoesName,
+            "${translateDatabase(shoesModel.shoesName, shoesModel.shoesNameAr)}",
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
             style: Get.textTheme.headlineMedium,
