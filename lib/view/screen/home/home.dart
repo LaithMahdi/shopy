@@ -6,7 +6,6 @@ import 'package:shopy/core/class/status_request.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
 import 'package:shopy/core/constant/image_asset.dart';
-import 'package:shopy/data/model/category_model.dart';
 import 'package:shopy/view/widget/authentification/custom_primary_button.dart';
 import 'package:shopy/view/widget/home/custom_container_shoes_card.dart';
 import 'package:shopy/view/widget/home/custom_genre_image_and_text.dart';
@@ -28,7 +27,7 @@ class HomeScreen extends StatelessWidget {
             : SafeArea(
                 child: ListView(
                   children: <Widget>[
-                    CustomSearchAndImagePicker(controller: controller),
+                    const CustomSearchAndImagePicker(),
                     SizedBox(
                       height: Get.height * 0.2,
                       child: Stack(
@@ -72,8 +71,11 @@ class HomeScreen extends StatelessWidget {
                         ),
                         itemBuilder: (context, index) =>
                             CustomGenreImageAndText(
-                          categoryModel: CategoryModel.fromJson(
-                              controller.category[index]),
+                          onTap: () {
+                            controller.goToCategoryScreen(
+                                controller.category[index].id);
+                          },
+                          categoryModel: controller.category[index],
                         ),
                       ),
                     ),

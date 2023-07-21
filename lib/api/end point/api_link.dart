@@ -16,4 +16,9 @@ class ApiLink {
   static String getDetailShoes(int id) {
     return "$getAllShoes/$id";
   }
+
+  static String ch = "$api/shoes/category";
+  static String getShoesByCategory(int id) {
+    return "$ch/$id";
+  }
 }

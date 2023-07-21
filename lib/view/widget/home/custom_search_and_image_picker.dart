@@ -7,9 +7,8 @@ import 'package:shopy/core/constant/color.dart';
 import 'package:shopy/core/constant/image_asset.dart';
 import 'package:shopy/view/widget/authentification/custom_text_form_field.dart';
 
-class CustomSearchAndImagePicker extends StatelessWidget {
-  final HomeControllerImpl controller;
-  const CustomSearchAndImagePicker({super.key, required this.controller});
+class CustomSearchAndImagePicker extends GetView<HomeControllerImpl> {
+  const CustomSearchAndImagePicker({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopy/core/class/status_request.dart';
+import 'package:shopy/core/constant/routes.dart';
 import 'package:shopy/core/functions/get_snackbar.dart';
 import 'package:shopy/core/functions/handle_data.dart';
+import 'package:shopy/data/model/category_model.dart';
+import 'package:shopy/data/model/shoes_model.dart';
 import 'package:shopy/data/remote/home/home_data.dart';
 
 abstract class HomeController extends GetxController {
   getData();
+  goToCategoryScreen(int selCat);
 }
 
 class HomeControllerImpl extends HomeController {
-  final List category = [];
-  final List shoes = [];
+  final List<CategoryModel> category = [];
+  final List<ShoesModel> shoes = [];
   HomeData homeData = HomeData(Get.find());
   StatusRequest? statusRequest;
   late TextEditingController searchController;
@@ -31,10 +35,15 @@ class HomeControllerImpl extends HomeController {
 
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
-      print(response);
       if (response["message"] == "success") {
-        category.addAll(response["categories"]);
-        shoes.addAll(response["shoes_with_discount"]);
+        category.addAll(List.generate(
+          response["categories"].length,
+          (index) => CategoryModel.fromJson(response["categories"][index]),
+        ));
+        shoes.addAll(List.generate(
+            response["shoes_with_discount"].length,
+            (index) =>
+                ShoesModel.fromJson(response["shoes_with_discount"][index])));
       } else if (response["error"] == "Invalid verification code.") {
         getCustomSnackBar("26".tr, "27".tr, false);
         statusRequest = StatusRequest.failure;
@@ -43,5 +52,11 @@ class HomeControllerImpl extends HomeController {
       statusRequest = StatusRequest.failure;
     }
     update();
+  }
+
+  @override
+  goToCategoryScreen(selCat) {
+    Get.toNamed(AppRoute.category,
+        arguments: {"selCat": selCat, "categories": category});
   }
 }

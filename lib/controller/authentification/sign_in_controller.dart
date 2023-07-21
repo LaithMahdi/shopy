@@ -23,7 +23,7 @@ class SignInControllerImp extends SignInController {
   late TextEditingController passwordController;
   MyServices myServices = Get.find();
   SignInData signInData = SignInData(Get.find());
-  late StatusRequest statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   @override
   void onInit() {
     mailController = TextEditingController();
@@ -55,6 +55,7 @@ class SignInControllerImp extends SignInController {
   void signIn() async {
     if (formstate.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
+      update();
       var response = await signInData.postData(
           mailController.text, passwordController.text);
       statusRequest = handlingData(response);
@@ -62,11 +63,11 @@ class SignInControllerImp extends SignInController {
         if (response["jwt"] != null) {
           String token = response["jwt"];
           await myServices.sharedPreferences.setString("token", token);
-          Get.offAllNamed(AppRoute.bottomNavigationBar);
+          Get.offNamed(AppRoute.bottomNavigationBar);
         } else if (response["detail"] == "User not found") {
           getCustomSnackBar("88".tr, "90".tr, false);
           statusRequest = StatusRequest.failure;
-        } else if (response["detail"] == "Incorrect password!") {
+        } else {
           getCustomSnackBar("89".tr, "91".tr, false);
           statusRequest = StatusRequest.failure;
         }

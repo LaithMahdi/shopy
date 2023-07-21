@@ -30,19 +30,19 @@ class Crud {
     }
   }
 
-  Future<Either<StatusRequest, Map>> getData(String linkurl) async {
+  Future<Either<StatusRequest, dynamic>> getData(String linkurl) async {
     try {
       if (await checkInternet()) {
         var response = await http.get(Uri.parse(linkurl));
         print("crudd ----- ${response.statusCode}");
         if (response.statusCode == 200 || response.statusCode == 201) {
-          Map responsebody = jsonDecode(response.body);
+          dynamic responsebody = jsonDecode(response.body);
           print("responsebody $responsebody");
           return Right(responsebody);
         } else if (response.statusCode == 403 ||
             response.statusCode == 400 ||
             response.statusCode == 404) {
-          Map responsebody = jsonDecode(response.body);
+          Map<String, dynamic> responsebody = jsonDecode(response.body);
           return Right(responsebody);
         } else {
           return const Left(StatusRequest.serverfailure);

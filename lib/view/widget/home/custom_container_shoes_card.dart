@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopy/controller/home/home_controller.dart';
@@ -12,14 +13,14 @@ class CustomShoesWithDiscountHomeScreen extends GetView<HomeControllerImpl> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Get.height * 0.32,
+      height: Get.height * 0.3,
       child: ListView.separated(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
           return CustomContainerShoesCard(
-            shoesModel: ShoesModel.fromJson(controller.shoes[index]),
+            shoesModel: controller.shoes[index],
             onTapFavorite: () {},
             onTapAdd: () {},
           );
@@ -53,11 +54,12 @@ class CustomContainerShoesCard extends StatelessWidget {
       onTap: () =>
           Get.toNamed(AppRoute.detail, arguments: {'id': shoesModel.id}),
       child: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(
             Radius.circular(AppSize.borderRaduis),
           ),
           color: AppColor.primaryColorWhite1,
+          border: Border.all(color: AppColor.primaryColorGrey2),
         ),
         width: Get.width * 0.45,
         padding: const EdgeInsets.all(AppSize.paddingBetween),
@@ -66,8 +68,8 @@ class CustomContainerShoesCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(AppSize.borderRaduis),
-                child: Image.network(
-                  shoesModel.shoesPicture,
+                child: CachedNetworkImage(
+                  imageUrl: shoesModel.shoesPicture,
                   width: Get.width * 0.4,
                   height: Get.height * 0.18,
                   fit: BoxFit.fill,
@@ -89,31 +91,12 @@ class CustomContainerShoesCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: AppSize.paddingBetween),
-          Expanded(
-            child: Text(
-              shoesModel.shoesName,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
-              style: Get.textTheme.headlineMedium,
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(AppSize.fs1),
-            margin: const EdgeInsets.only(
-              top: AppSize.textHeightSm,
-            ),
-            decoration: BoxDecoration(
-              color: AppColor.primaryColorGrey2,
-              borderRadius: BorderRadius.circular(4),
-            ),
-            child: Text(
-              "2",
-              style: Get.textTheme.headlineSmall!.copyWith(
-                color: AppColor.primaryColorWhite,
-                fontSize: 9,
-              ),
-            ),
+          const SizedBox(height: AppSize.md),
+          Text(
+            shoesModel.shoesName,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+            style: Get.textTheme.headlineMedium,
           ),
           const SizedBox(height: AppSize.fs1),
           Row(

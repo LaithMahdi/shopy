@@ -4,11 +4,8 @@ import 'package:shopy/controller/checkout/checkout_controller.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
 import 'package:shopy/core/constant/image_asset.dart';
-import 'package:shopy/data/datasource/static/shoes_list.dart';
-import 'package:shopy/data/model/shoes_model.dart';
 import 'package:shopy/view/widget/authentification/custom_primary_button.dart';
 import 'package:shopy/view/widget/back_button.dart';
-import 'package:shopy/view/widget/wishlist/custom_card_shoes_vertical.dart';
 
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({super.key});

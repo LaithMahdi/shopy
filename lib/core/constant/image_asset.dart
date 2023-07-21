@@ -30,4 +30,7 @@ class AppImageAsset {
   // Lottie
   static const String lottieLoading = "$rootImages/lottie/loading.json";
   static const String lottieSuccess = "$rootImages/lottie/success.json";
+  static const String lottie404 = "$rootImages/lottie/404.json";
+  static const String lottieNoData = "$rootImages/lottie/no data.json";
+  static const String lottieNoInternet = "$rootImages/lottie/No internet.json";
 }

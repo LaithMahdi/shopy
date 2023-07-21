@@ -19,4 +19,5 @@ class AppRoute {
   static const String paymentMethod = "/payment_method";
   static const String settings = "/settings";
   static const String detail = "/detail";
+  static const String category = "/category";
 }

@@ -17,13 +17,14 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController nameController;
   late TextEditingController mailController;
   late TextEditingController passwordController;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   SignUpData signUpData = SignUpData(Get.find());
   @override
   void onInit() {
     nameController = TextEditingController();
     mailController = TextEditingController();
     passwordController = TextEditingController();
+
     super.onInit();
   }
 
@@ -39,6 +40,11 @@ class SignUpControllerImp extends SignUpController {
       if (StatusRequest.success == statusRequest) {
         if (response != null && response["message"] != null) {
           getCustomSnackBar("96".tr, "97".tr, true);
+          _cleanTexFormFiled();
+          // Future.delayed(
+          //   const Duration(seconds: 2),
+          //   () => Get.toNamed(AppRoute.login),
+          // );
         } else if (response["email"][0] ==
             "user with this email already exists.") {
           getCustomSnackBar("94".tr, "95".tr, false);
@@ -55,5 +61,11 @@ class SignUpControllerImp extends SignUpController {
   showPassword() {
     isShowPassword = isShowPassword == true ? false : true;
     update();
+  }
+
+  void _cleanTexFormFiled() {
+    nameController.clear();
+    mailController.clear();
+    passwordController.clear();
   }
 }
