@@ -3,6 +3,7 @@ class ApiLink {
   static const String api = "http://10.0.2.2:8000/api";
   // Authentification API
   static const String postLogin = "$api/users/login";
+
   static const String getUser = "$api/users/user";
   static const String postRegisterUser = "$api/users/register";
   static const String postSendVerifyCode = "$api/users/sendverifycode";

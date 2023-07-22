@@ -27,6 +27,7 @@ class HomeControllerImpl extends HomeController {
     // TODO: implement onInit
     searchController = TextEditingController();
     getData();
+    getUserData();
     lang = myServices.sharedPreferences.getString("lang");
     super.onInit();
   }
@@ -62,5 +63,11 @@ class HomeControllerImpl extends HomeController {
   goToCategoryScreen(selCat) {
     Get.toNamed(AppRoute.category,
         arguments: {"selCat": selCat, "categories": category});
+  }
+
+  getUserData() async {
+    String? id = myServices.sharedPreferences.getString("id");
+    String? email = myServices.sharedPreferences.getString("email");
+    print("name ${myServices.sharedPreferences.getString("name")}");
   }
 }

@@ -30,13 +30,18 @@ class Crud {
     }
   }
 
-  Future<Either<StatusRequest, dynamic>> getData(String linkurl) async {
+  Future<Either<StatusRequest, dynamic>> getData(
+    String linkurl, {
+    Map<String, String>? headers, // Headers are now optional and nullable
+  }) async {
     try {
       if (await checkInternet()) {
-        var response = await http.get(Uri.parse(linkurl));
+        var response = await http.get(
+          Uri.parse(linkurl),
+          headers: headers, // Use the provided headers, or null if not provided
+        );
         print("crudd ----- ${response.statusCode}");
         if (response.statusCode == 200 || response.statusCode == 201) {
-          //jsonDecode(utf8.decode(res.bodyBytes))
           dynamic responsebody = jsonDecode(utf8.decode(response.bodyBytes));
           print("responsebody $responsebody");
           return Right(responsebody);

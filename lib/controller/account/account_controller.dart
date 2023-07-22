@@ -40,6 +40,7 @@ class AccountControllerImp extends AccountController {
                 child: CustomPrimaryButton(
                   onPressed: () async {
                     localeController.changeLang("ar");
+                    update();
                     await services.sharedPreferences.setString("locale", "ar");
 
                     Get.back();
@@ -53,6 +54,7 @@ class AccountControllerImp extends AccountController {
                 child: CustomPrimaryButton(
                   onPressed: () async {
                     localeController.changeLang("en");
+                    update();
                     await services.sharedPreferences.setString("locale", "en");
                     Get.back();
                   },

@@ -50,9 +50,11 @@ class AccountScreen extends StatelessWidget {
                 CustomButtonAccount(name: "80".tr, onTap: () {}),
                 CustomButtonAccount(name: "81".tr, onTap: () {}),
                 CustomButtonAccount(name: "82".tr, onTap: () {}),
-                CustomButtonAccount(
-                  name: "83".tr,
-                  onTap: () => controller.changeLocale(),
+                GetBuilder<AccountControllerImp>(
+                  builder: (controller) => CustomButtonAccount(
+                    name: "83".tr,
+                    onTap: () => controller.changeLocale(),
+                  ),
                 ),
                 CustomButtonAccount(name: "84".tr, onTap: () {}),
                 CustomButtonAccount(

@@ -37,10 +37,8 @@ class HomeScreen extends StatelessWidget {
                             decoration: const BoxDecoration(
                               color: AppColor.primaryColorBlue,
                               borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(
-                                    AppSize.paddingContentScreen),
-                                bottomRight: Radius.circular(
-                                    AppSize.paddingContentScreen),
+                                bottomLeft: Radius.circular(20),
+                                bottomRight: Radius.circular(20),
                               ),
                             ),
                           ),
@@ -53,12 +51,6 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    // CustomSlideCard(
-                    //   picture: AppImageAsset.airMax2090,
-                    //   genre: "40".tr,
-                    //   name: "41".tr,
-                    //   onPressed: () {},
-                    // ),
                     const SizedBox(height: AppSize.buttonPadding),
                     Container(
                       height: Get.height * 0.13,
