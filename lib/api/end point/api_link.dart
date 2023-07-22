@@ -18,8 +18,17 @@ class ApiLink {
     return "$getAllShoes/$id";
   }
 
-  static String ch = "$api/shoes/category";
+  static String category = "$api/shoes/category";
   static String getShoesByCategory(int id) {
-    return "$ch/$id";
+    return "$category/$id";
+  }
+
+  static String postFavorite = "$api/shoes/favorites/";
+  static String deleteFavorite(int id) {
+    return "$api/shoes/favorites/$id";
+  }
+
+  static String getUserFavorites(int userId) {
+    return "$api/shoes/favorites/?user_id=$userId";
   }
 }

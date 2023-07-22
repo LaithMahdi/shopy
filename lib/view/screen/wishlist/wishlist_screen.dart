@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:shopy/controller/wishlist/wishlist_controller.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
-import 'package:shopy/data/datasource/static/shoes_list.dart';
 import 'package:shopy/data/model/shoes_model.dart';
 import 'package:shopy/view/widget/authentification/custom_primary_button.dart';
 import 'package:shopy/view/widget/authentification/custom_text_form_field.dart';
@@ -12,7 +11,7 @@ import 'package:shopy/view/widget/wishlist/custom_card_shoes_vertical.dart';
 import 'package:shopy/view/widget/wishlist/custom_wishlist_button.dart';
 
 class WishlistScreen extends StatelessWidget {
-  const WishlistScreen({super.key});
+  const WishlistScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -71,27 +70,21 @@ class WishlistScreen extends StatelessWidget {
             ),
             Expanded(
               flex: 6,
-              child: ListView(
-                physics: const BouncingScrollPhysics(),
-                children: const [
-                  // SizedBox(
-                  //   height: Get.height * 0.8,
-                  //   child: ListView.separated(
-                  //     physics: const NeverScrollableScrollPhysics(),
-                  //     itemBuilder: (context, index) {
-                  //       ShoesModel shoes = shoesList[index];
-                  //       return CustomCardShoesVertical(
-                  //         picture: shoes.picture,
-                  //         name: shoes.name,
-                  //         prise: shoes.prise,
-                  //       );
-                  //     },
-                  //     separatorBuilder: (context, index) =>
-                  //         const SizedBox(height: AppSize.md),
-                  //     itemCount: shoesList.length,
-                  //   ),
-                  // ),
-                ],
+              child: Obx(
+                () => ListView.separated(
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: controller.favoriteShoes.length,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: AppSize.borderRaduis),
+                  itemBuilder: (context, index) {
+                    ShoesModel shoes = controller.favoriteShoes[index];
+                    return CustomCardShoesVertical(
+                      picture: shoes.shoesPicture,
+                      name: shoes.shoesName,
+                      prise: shoes.shoesPrice, // Fixed typo "prise" to "price"
+                    );
+                  },
+                ),
               ),
             ),
             Expanded(

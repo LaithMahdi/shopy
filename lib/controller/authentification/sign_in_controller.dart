@@ -102,8 +102,7 @@ class SignInControllerImp extends SignInController {
             response.containsKey("email")) {
           await myServices.sharedPreferences
               .setString("name", response["name"]);
-          await myServices.sharedPreferences
-              .setString("id", response["id"].toString());
+          await myServices.sharedPreferences.setInt("id", response["id"]);
           await myServices.sharedPreferences
               .setString("email", response["email"]);
         } else {
@@ -121,6 +120,4 @@ class SignInControllerImp extends SignInController {
     }
     update();
   }
-
-  // ... your other methods ...
 }

@@ -22,6 +22,7 @@ class HomeControllerImpl extends HomeController {
   StatusRequest? statusRequest;
   late TextEditingController searchController;
   String? lang;
+  // FavoriteControllerImp favoriteController = FavoriteControllerImp();
   @override
   void onInit() {
     // TODO: implement onInit

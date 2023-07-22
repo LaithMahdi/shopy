@@ -43,6 +43,7 @@ dependencies:
   http: ^1.1.0
   lottie: ^2.5.0
   cached_network_image: ^3.2.3
+  sqflite: ^2.2.8+4
 
 dev_dependencies:
   flutter_test:

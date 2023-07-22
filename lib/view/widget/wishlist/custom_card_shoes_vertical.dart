@@ -7,11 +7,12 @@ class CustomCardShoesVertical extends StatelessWidget {
   final String picture;
   final String name;
   final double prise;
-  const CustomCardShoesVertical(
-      {super.key,
-      required this.picture,
-      required this.name,
-      required this.prise});
+  const CustomCardShoesVertical({
+    super.key,
+    required this.picture,
+    required this.name,
+    required this.prise,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,76 +31,79 @@ class CustomCardShoesVertical extends StatelessWidget {
             borderRadius: BorderRadius.circular(
               AppSize.paddingBetween,
             ),
-            child: Image.asset(
+            child: Image.network(
               picture,
               width: Get.width * 0.35,
               height: Get.height * 0.2,
             ),
           ),
           const SizedBox(width: AppSize.borderRaduis),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                name,
-                style: Get.textTheme.headlineMedium,
-              ),
-              const SizedBox(height: AppSize.fs2),
-              Text(
-                "\$$prise",
-                style: Get.textTheme.headlineMedium!.copyWith(
-                  fontWeight: FontWeight.bold,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  overflow: TextOverflow.ellipsis,
+                  style: Get.textTheme.headlineMedium,
                 ),
-              ),
-              const SizedBox(height: AppSize.borderRaduis),
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      "-",
-                      style: Get.textTheme.headlineLarge!.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: AppColor.primaryColorGrey,
-                      ),
-                    ),
+                const SizedBox(height: AppSize.fs2),
+                Text(
+                  "\$$prise",
+                  style: Get.textTheme.headlineMedium!.copyWith(
+                    fontWeight: FontWeight.bold,
                   ),
-                  const SizedBox(width: AppSize.md),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: AppSize.fs2,
-                      horizontal: AppSize.fs1,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColor.primaryColorGrey2,
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(
-                        AppSize.fs2,
-                      ),
-                    ),
-                    child: Text(
-                      "1",
-                      style: Get.textTheme.headlineLarge!.copyWith(
-                        color: AppColor.primaryColorGrey,
+                ),
+                const SizedBox(height: AppSize.borderRaduis),
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Text(
+                        "-",
+                        style: Get.textTheme.headlineLarge!.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.primaryColorGrey,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(width: AppSize.md),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      "+",
-                      style: Get.textTheme.headlineLarge!.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: AppColor.primaryColorGrey,
+                    const SizedBox(width: AppSize.md),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: AppSize.fs2,
+                        horizontal: AppSize.fs1,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: AppColor.primaryColorGrey2,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          AppSize.fs2,
+                        ),
+                      ),
+                      child: Text(
+                        "1",
+                        style: Get.textTheme.headlineLarge!.copyWith(
+                          color: AppColor.primaryColorGrey,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    const SizedBox(width: AppSize.md),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Text(
+                        "+",
+                        style: Get.textTheme.headlineLarge!.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.primaryColorGrey,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
