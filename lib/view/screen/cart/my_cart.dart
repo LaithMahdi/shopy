@@ -3,12 +3,9 @@ import 'package:get/get.dart';
 import 'package:shopy/controller/cart/my_cart_controller.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
-import 'package:shopy/data/datasource/static/shoes_list.dart';
-import 'package:shopy/data/model/shoes_model.dart';
 import 'package:shopy/view/widget/authentification/custom_primary_button.dart';
 import 'package:shopy/view/widget/authentification/custom_text_form_field.dart';
 import 'package:shopy/view/widget/back_button.dart';
-import 'package:shopy/view/widget/wishlist/custom_card_shoes_vertical.dart';
 
 class MyCartScreen extends StatelessWidget {
   const MyCartScreen({super.key});
@@ -118,7 +115,7 @@ class MyCartScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "\$282.00",
+                        "\$0.00",
                         style: Get.textTheme.headlineLarge!.copyWith(
                           color: AppColor.primaryColorGrey,
                         ),

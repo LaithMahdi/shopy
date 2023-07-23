@@ -52,18 +52,18 @@ class MyTranslation extends Translations {
           "41": "حذاء اير ماكس 2090",
           "42": "اشتري الآن",
           "43": "التفاصيل",
-          "44": "",
-          "45": "",
-          "46": "",
+          "44": "شراء",
+          "45": "اطلب النجاح!",
+          "46": "لقد تم تقديم طلبك بنجاح! لمزيد من التفاصيل ، اذهب إلى طلباتي.",
           "47": "منتجات جديدة",
           "48": "مشاهدة الكل",
           "49": "نايك رياكت ميلر",
-          "50": "نايك اير ماكس 270",
-          "51": "نايك اير فورس 1",
+          "50": "الوصف",
+          "51": "اختر القياس",
           "52": "ألوان",
           "53": "قائمة امنياتي",
           "54": "تم الحفظ لوقت لاحق.",
-          "55": "أضف إلى سلة التسوق الكل",
+          "55": "أضف إلى سلة",
           "56": "امسح الكل",
           "57": "الصفحة الرئيسية",
           "58": "سلتي",
@@ -112,8 +112,11 @@ class MyTranslation extends Translations {
               "تهانينا! تم تسجيلكم بنجاح. أهلا بك في مجتمعنا. يسعدنا انضمامك إلينا",
           "98":
               "تم إرسال رمز التحقق بنجاح! يرجى التحقق من بريدك الإلكتروني للحصول على الرمز.",
-          "99": "",
-          "100": "",
+          "99": "أضيفت إلى المفضلة",
+          "100": "إزالة من المفضلة",
+          "102": "تمت إزالة العنصر بنجاح من قائمة المفضلة الخاصة بك",
+          "101": "تهانينا! لقد نجحت في إضافة هذا العنصر إلى مفضلاتك",
+          "103": "الفئة"
         },
         "en": {
           "1": "Sign In",
@@ -164,14 +167,15 @@ class MyTranslation extends Translations {
           "41": "Air Max 2090",
           "42": "Buy now",
           "43": "Detail",
-          "44": "",
-          "45": "",
-          "46": "",
+          "44": "Buy",
+          "45": "Order success!",
+          "46":
+              "Your order has been placed successfully! For more details, go to my orders.",
           "47": "New Products",
           "48": "View all",
           "49": "Nike React Miler",
-          "50": "Nike Air Max 270",
-          "51": "Nike Air Force 1",
+          "50": "Description",
+          "51": "Select Size",
           "52": "Colors",
           "53": "My wishlist",
           "54": "Saved for later.",
@@ -224,8 +228,13 @@ class MyTranslation extends Translations {
               "Congratulations! Your registration was successful. Welcome to our community. We're excited to have you on board",
           "98":
               "Verification code sent successfully! Please check your email for the code.",
-          "99": "",
-          "100": "",
+          "99": "Added to favorites",
+          "100": "Removed from favorites",
+          "102":
+              "The item has been successfully removed from your favorites list",
+          "101":
+              " Congratulations! You've successfully added this item to your favorites",
+          "103": "Category"
         }
       };
 }

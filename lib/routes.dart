@@ -16,6 +16,7 @@ import 'package:shopy/view/screen/home/category/category.dart';
 import 'package:shopy/view/screen/home/detail/detail.dart';
 import 'package:shopy/view/screen/home/home.dart';
 import 'package:shopy/view/screen/onboarding/onboarding.dart';
+import 'package:shopy/view/screen/order/order_success.dart';
 import 'package:shopy/view/screen/payment%20method/payment_method_screen.dart';
 import 'package:shopy/view/screen/splash/splash_screen.dart';
 import 'package:shopy/view/screen/wishlist/wishlist_screen.dart';
@@ -52,4 +53,5 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.settings, page: () => const AccountScreen()),
   GetPage(name: AppRoute.detail, page: () => const DetailScreen()),
   GetPage(name: AppRoute.category, page: () => const CategoryScreen()),
+  GetPage(name: AppRoute.orderSuccess, page: () => const OrderSuccessScreen()),
 ];

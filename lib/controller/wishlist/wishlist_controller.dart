@@ -17,7 +17,7 @@ class WishlistControllerImp extends WishlistController {
 
   StatusRequest statusRequest = StatusRequest.none;
   final RxList<ShoesModel> favoriteShoes = <ShoesModel>[].obs;
-  final FavoriteController favoriteController = Get.find<FavoriteController>();
+  final FavoriteController favoriteController = Get.put(FavoriteController());
 
   @override
   void onInit() {
@@ -53,13 +53,6 @@ class WishlistControllerImp extends WishlistController {
     if (StatusRequest.success == statusRequest) {
       if (response is List) {
         allShoes = response.map((e) => ShoesModel.fromJson(e)).toList();
-        // or use the following if statement to handle the empty response
-        // if (response.isNotEmpty) {
-        //   allShoes = response.map((e) => ShoesModel.fromJson(e)).toList();
-        // } else {
-        //   getCustomSnackBar("26".tr, "27".tr, false);
-        //   statusRequest = StatusRequest.failure;
-        // }
       } else if (response["error"]) {
         getCustomSnackBar("26".tr, "27".tr, false);
         statusRequest = StatusRequest.failure;

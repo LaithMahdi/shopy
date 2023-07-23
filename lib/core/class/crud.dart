@@ -10,11 +10,14 @@ class Crud {
       if (await checkInternet()) {
         var response = await http.post(Uri.parse(linkurl), body: data);
         print("crudd ----- ${response.statusCode}");
-        if (response.statusCode == 200 || response.statusCode == 201) {
+        if (response.statusCode == 200 ||
+            response.statusCode == 201 ||
+            response.statusCode == 205) {
           Map responsebody = jsonDecode(response.body);
           print("responsebody $responsebody");
           return Right(responsebody);
         } else if (response.statusCode == 403 ||
+            response.statusCode == 401 ||
             response.statusCode == 400 ||
             response.statusCode == 404) {
           Map responsebody = jsonDecode(response.body);

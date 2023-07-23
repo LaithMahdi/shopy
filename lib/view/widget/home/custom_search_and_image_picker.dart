@@ -29,6 +29,12 @@ class CustomSearchAndImagePicker extends GetView<HomeControllerImpl> {
             validator: (valid) {
               return null;
             },
+            onTapShowEye: () {
+              controller.onSearch();
+            },
+            onChanged: (val) {
+              controller.chechSearch(val);
+            },
           ),
         ),
         const SizedBox(width: AppSize.buttonPadding),

@@ -79,7 +79,7 @@ class CheckoutScreen extends StatelessWidget {
                 // SizedBox(
                 //   height: Get.height * 0.8,
                 //   child: ListView.separated(
-                //     physics: const NeverScrollableScrollPhysics(),
+                //     physics: NeverScrollableScrollPhysics(),
                 //     itemBuilder: (context, index) {
                 //       ShoesModel shoes = shoesList[index];
                 //       return CustomCardShoesVertical(

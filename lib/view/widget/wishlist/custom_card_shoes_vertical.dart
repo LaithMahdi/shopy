@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
 
+import 'custom_counter.dart';
+
 class CustomCardShoesVertical extends StatelessWidget {
   final String picture;
   final String name;
@@ -54,54 +56,13 @@ class CustomCardShoesVertical extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: AppSize.borderRaduis),
-                Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        "-",
-                        style: Get.textTheme.headlineLarge!.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: AppColor.primaryColorGrey,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: AppSize.md),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: AppSize.fs2,
-                        horizontal: AppSize.fs1,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: AppColor.primaryColorGrey2,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(
-                          AppSize.fs2,
-                        ),
-                      ),
-                      child: Text(
-                        "1",
-                        style: Get.textTheme.headlineLarge!.copyWith(
-                          color: AppColor.primaryColorGrey,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: AppSize.md),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        "+",
-                        style: Get.textTheme.headlineLarge!.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: AppColor.primaryColorGrey,
-                        ),
-                      ),
-                    ),
-                  ],
+                const SizedBox(height: AppSize.fs2),
+                CustomCounter(
+                  counter: "1",
+                  onTapAdd: () {},
+                  onTapMinus: () {},
                 ),
+                const SizedBox(height: AppSize.borderRaduis),
               ],
             ),
           ),

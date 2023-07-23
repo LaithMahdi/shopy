@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopy/core/functions/get_snackbar.dart';
 import 'package:shopy/data/datasource/sqflite/database_heleper.dart';
 
 class FavoriteController extends GetxController {
@@ -30,16 +30,10 @@ class FavoriteController extends GetxController {
   }
 
   void showFavoriteSnackbar(int shoeId) {
-    final message =
-        isFavorite(shoeId) ? 'Added to favorites' : 'Removed from favorites';
-    Get.snackbar(
-      'Favorite',
-      message,
-      snackPosition: SnackPosition.BOTTOM,
-      duration: const Duration(seconds: 2),
-      backgroundColor: Colors.grey, // Customize the background color if needed
-      colorText: Colors.white, // Customize the text color if needed
-    );
+    final message = isFavorite(shoeId) ? '99'.tr : '100'.tr;
+
+    getCustomSnackBar(message, isFavorite(shoeId) ? "101".tr : "102".tr,
+        isFavorite(shoeId) ? true : false);
   }
 
   bool isFavorite(int shoeId) {

@@ -20,4 +20,5 @@ class AppRoute {
   static const String settings = "/settings";
   static const String detail = "/detail";
   static const String category = "/category";
+  static const String orderSuccess = "/order_success";
 }

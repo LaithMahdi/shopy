@@ -9,6 +9,7 @@ class ApiLink {
   static const String postSendVerifyCode = "$api/users/sendverifycode";
   static const String postCheckVerifyCode = "$api/users/checkverifycode";
   static const String postRestPassword = "$api/users/restpassword";
+  static const String logout = "$api/users/logout";
   // HomePAGE API
   static const String getHomePage = "$api/shoes/homepage";
   //localhost:8000/api/shoes/shoeslist/2
@@ -30,5 +31,9 @@ class ApiLink {
 
   static String getUserFavorites(int userId) {
     return "$api/shoes/favorites/?user_id=$userId";
+  }
+
+  static String search(String textSearch) {
+    return "$api/shoes/search?search=$textSearch";
   }
 }

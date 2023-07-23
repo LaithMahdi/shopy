@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopy/core/constant/routes.dart';
 
 abstract class PaymentMethodController extends GetxController {
   void addCard();
@@ -25,7 +26,9 @@ class PaymentMethodControllerImp extends PaymentMethodController {
   }
 
   @override
-  void addCard() {}
+  void addCard() {
+    Get.offNamed(AppRoute.orderSuccess);
+  }
 
   @override
   void scanCard() {}

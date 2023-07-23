@@ -18,7 +18,7 @@ class CategoryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: const CustomBackButton(),
-        title: Text("43".tr, style: Get.textTheme.displayLarge),
+        title: Text("103".tr, style: Get.textTheme.displayLarge),
         backgroundColor: AppColor.primaryColorWhite,
         elevation: 0,
       ),

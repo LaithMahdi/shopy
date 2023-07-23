@@ -1,5 +1,6 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+import 'dart:io';
 
 class DatabaseHelper {
   static final DatabaseHelper _instance = DatabaseHelper.internal();
@@ -31,6 +32,23 @@ class DatabaseHelper {
         ''');
       },
     );
+  }
+
+  Future<void> deleteDatabase() async {
+    final databasesPath = await getDatabasesPath();
+    final path = join(databasesPath, 'favorite.db');
+
+    // Close the database if it's open
+    if (_db != null) {
+      await _db!.close();
+      _db = null;
+    }
+
+    // Delete the database file
+    final file = File(path);
+    if (await file.exists()) {
+      await file.delete();
+    }
   }
 
   Future<int> insertFavoriteShoe(int shoeId) async {

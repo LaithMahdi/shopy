@@ -10,6 +10,7 @@ import 'package:shopy/core/constant/image_asset.dart';
 import 'package:shopy/core/functions/translate_database.dart';
 import 'package:shopy/view/widget/authentification/custom_primary_button.dart';
 import 'package:shopy/view/widget/back_button.dart';
+import 'package:shopy/view/widget/wishlist/custom_counter.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key});
@@ -47,10 +48,19 @@ class DetailScreen extends StatelessWidget {
                     ),
                     Expanded(
                       flex: 4,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: ListView(
+                        physics: const BouncingScrollPhysics(),
                         children: [
                           const SizedBox(height: AppSize.fs),
+                          Text(
+                            "${translateDatabase(controller.shoesModel!.category.categoryName, controller.shoesModel!.category.categoryNameAr)}",
+                            style: Get.textTheme.headlineMedium!.copyWith(
+                              color:
+                                  AppColor.primaryColorGrey3.withOpacity(0.5),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(height: AppSize.fs1),
                           Text(
                             "${translateDatabase(controller.shoesModel!.shoesName, controller.shoesModel!.shoesNameAr)}",
                             style: Get.textTheme.headlineLarge!.copyWith(
@@ -58,7 +68,7 @@ class DetailScreen extends StatelessWidget {
                               fontSize: AppSize.fs,
                             ),
                           ),
-                          const SizedBox(height: AppSize.fs1),
+                          const SizedBox(height: AppSize.fs2),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -72,53 +82,75 @@ class DetailScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: AppColor.primaryColorGrey4,
-                                    borderRadius: BorderRadius.circular(
-                                        AppSize.borderRaduis)),
-                                padding: const EdgeInsets.all(AppSize.fs2),
-                                child: Row(
-                                  children: [
-                                    InkWell(
-                                      onTap: () => controller.onMinus(),
-                                      child: const Icon(
-                                        Icons.remove,
-                                        color: AppColor.primaryColorGrey1,
-                                      ),
-                                    ),
-                                    const SizedBox(width: AppSize.fs2),
-                                    Obx(() => Text(
-                                          "${controller.counter.value}",
-                                          style: Get.textTheme.headlineLarge!
-                                              .copyWith(
-                                            color: AppColor.primaryColorGrey1,
-                                          ),
-                                        )),
-                                    const SizedBox(width: AppSize.fs2),
-                                    InkWell(
-                                      onTap: () => controller.onAdd(),
-                                      child: const Icon(
-                                        Icons.add,
-                                        color: AppColor.primaryColorGrey1,
-                                      ),
-                                    ),
-                                  ],
+                              Obx(
+                                () => CustomCounter(
+                                  counter: "${controller.counter.value}",
+                                  onTapAdd: () => controller.onAdd(),
+                                  onTapMinus: () => controller.onMinus(),
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: AppSize.md),
-                          Flexible(
-                            child: Text(
-                              "${translateDatabase(controller.shoesModel!.shoesDescription, controller.shoesModel!.shoesDescriptionAr)}",
-                              style: Get.textTheme.headlineSmall!.copyWith(
-                                color: AppColor.primaryColorGrey4,
-                                fontWeight: FontWeight.w500,
-                                //fontSize: AppSize.fs,
+                          const SizedBox(height: AppSize.fs1),
+                          const Divider(color: AppColor.primaryColorGrey4),
+                          const SizedBox(height: AppSize.fs1),
+                          Text("51".tr, style: Get.textTheme.headlineMedium),
+                          const SizedBox(height: AppSize.fs),
+                          SizedBox(
+                            height: Get.height * 0.05,
+                            child: ListView.separated(
+                              physics: const BouncingScrollPhysics(),
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: controller.size.length,
+                              separatorBuilder: (context, index) =>
+                                  const SizedBox(width: AppSize.fs),
+                              itemBuilder: (context, index) =>
+                                  GetBuilder<DetailControllerImp>(
+                                builder: (controller) {
+                                  bool isTapped = controller.tapedSize[index];
+                                  return InkWell(
+                                    onTap: () {
+                                      controller.changeTapedSize(index);
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: isTapped
+                                            ? AppColor.primaryColorGrey
+                                            : AppColor.primaryColorGrey2,
+                                        borderRadius: BorderRadius.circular(
+                                            AppSize.borderRaduis),
+                                      ),
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: AppSize.fs1,
+                                        horizontal: AppSize.buttonPadding,
+                                      ),
+                                      child: Text(
+                                        controller.size[index],
+                                        style: Get.textTheme.headlineSmall!
+                                            .copyWith(
+                                          color: isTapped
+                                              ? AppColor.primaryColorWhite
+                                              : AppColor.primaryColorGrey,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                           ),
+                          const SizedBox(height: AppSize.md),
+                          Text("50".tr, style: Get.textTheme.headlineMedium),
+                          const SizedBox(height: AppSize.md),
+                          Text(
+                            "${translateDatabase(controller.shoesModel!.shoesDescription, controller.shoesModel!.shoesDescriptionAr)}",
+                            style: Get.textTheme.headlineSmall!.copyWith(
+                              color: AppColor.primaryColorGrey4,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(height: AppSize.md),
                         ],
                       ),
                     ),
@@ -126,7 +158,10 @@ class DetailScreen extends StatelessWidget {
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 15),
                         child: CustomPrimaryButton(
-                            onPressed: () {}, title: "title"),
+                            onPressed: () {
+                              controller.goToCheckout();
+                            },
+                            title: "44".tr),
                       ),
                     ),
                   ],

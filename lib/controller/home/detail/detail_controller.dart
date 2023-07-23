@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:shopy/core/class/status_request.dart';
+import 'package:shopy/core/constant/routes.dart';
 import 'package:shopy/core/functions/get_snackbar.dart';
 import 'package:shopy/core/functions/handle_data.dart';
 import 'package:shopy/data/model/shoes_model.dart';
@@ -16,6 +17,10 @@ class DetailControllerImp extends DetailController {
   late RxDouble prise;
   ShoesModel? shoesModel;
   late int id;
+  List<bool> tapedSize = [false, false, false, false, false];
+  int currentlyTappedIndex = -1;
+
+  List<String> size = ["US 4", "US 4.5", "US 5", "US 5.5", "US 6"];
 
   @override
   void onInit() {
@@ -55,5 +60,21 @@ class DetailControllerImp extends DetailController {
       statusRequest = StatusRequest.failure;
     }
     update();
+  }
+
+  void changeTapedSize(int i) {
+    for (int index = 0; index < tapedSize.length; index++) {
+      if (index == i) {
+        tapedSize[index] = true;
+        currentlyTappedIndex = index;
+      } else {
+        tapedSize[index] = false;
+      }
+    }
+    update();
+  }
+
+  goToCheckout() {
+    Get.toNamed(AppRoute.paymentMethod);
   }
 }

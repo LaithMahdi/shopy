@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopy/core/class/status_request.dart';
 import 'package:shopy/core/constant/app_size.dart';
 import 'package:shopy/core/constant/color.dart';
 import 'package:shopy/core/constant/routes.dart';
+import 'package:shopy/core/functions/get_snackbar.dart';
+import 'package:shopy/core/functions/handle_data.dart';
 import 'package:shopy/core/localization/changelocal.dart';
 import 'package:shopy/core/services/my_services.dart';
+import 'package:shopy/data/datasource/sqflite/database_heleper.dart';
+import 'package:shopy/data/remote/authentification/logout_data.dart';
 import 'package:shopy/view/widget/authentification/custom_primary_button.dart';
 
 abstract class AccountController extends GetxController {
@@ -15,10 +20,22 @@ abstract class AccountController extends GetxController {
 class AccountControllerImp extends AccountController {
   MyServices services = Get.find();
   LocaleController localeController = Get.find();
+  String? name = "";
+  StatusRequest statusRequest = StatusRequest.none;
+  LogoutData logoutData = LogoutData(Get.find());
+  DatabaseHelper database = DatabaseHelper();
   @override
-  void logout() async {
+  void onInit() async {
+    name = services.sharedPreferences.getString("name");
+    super.onInit();
+  }
+
+  void clearData() async {
     await services.sharedPreferences.remove("token");
-    Get.offAllNamed(AppRoute.login);
+    await services.sharedPreferences.remove("name");
+    await services.sharedPreferences.remove("id");
+    await services.sharedPreferences.remove("email");
+    database.deleteDatabase();
   }
 
   @override
@@ -67,7 +84,24 @@ class AccountControllerImp extends AccountController {
         ],
       ),
     );
+  }
 
-    //localeController.changeLang("en");
+  @override
+  void logout() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await logoutData.postData();
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response["status"] == "success") {
+        clearData();
+
+        Get.offAllNamed(AppRoute.login);
+      } else {
+        getCustomSnackBar("89".tr, "91".tr, false);
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
   }
 }
