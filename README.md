@@ -22,9 +22,9 @@ Shopy is a dynamic and feature-rich Flutter mobile application designed for all 
 
 🔗 Links:
 
-    Demo App: Try Shopy : https://www.linkedin.com/feed/update/urn:li:activity:7088977948476612608/
-    Backend Repository: https://github.com/LaithMahdi/shopy_backend
-    LinkedIn: https://www.linkedin.com/in/laith-mahdi-06458523a/
+    Demo App: Try Shopy : [https://www.linkedin.com/feed/update/urn:li:activity:7088977948476612608/]
+    Backend Repository: [https://github.com/LaithMahdi/shopy_backend]
+    LinkedIn: [https://www.linkedin.com/in/laith-mahdi-06458523a/]
 
 🚀 As a passionate developer, I built Shopy to explore the potential of Flutter and its seamless integration with Django API REST. This project showcases my dedication to creating user-friendly and efficient applications that cater to diverse audiences.
 
